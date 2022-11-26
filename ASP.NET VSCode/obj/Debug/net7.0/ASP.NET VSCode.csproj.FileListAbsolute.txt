@@ -60,3 +60,34 @@ D:\Github\ASP.NET_Aptech\ASP.NET\obj\Debug\net7.0\refint\ASP.NET VSCode.dll
 D:\Github\ASP.NET_Aptech\ASP.NET\obj\Debug\net7.0\ASP.NET VSCode.pdb
 D:\Github\ASP.NET_Aptech\ASP.NET\obj\Debug\net7.0\ASP.NET VSCode.genruntimeconfig.cache
 D:\Github\ASP.NET_Aptech\ASP.NET\obj\Debug\net7.0\ref\ASP.NET VSCode.dll
+D:\Github\ASP.NET_Aptech\ASP.NET VSCode\bin\Debug\net7.0\appsettings.Development.json
+D:\Github\ASP.NET_Aptech\ASP.NET VSCode\bin\Debug\net7.0\appsettings.json
+D:\Github\ASP.NET_Aptech\ASP.NET VSCode\bin\Debug\net7.0\ASP.NET VSCode.staticwebassets.runtime.json
+D:\Github\ASP.NET_Aptech\ASP.NET VSCode\bin\Debug\net7.0\ASP.NET VSCode.exe
+D:\Github\ASP.NET_Aptech\ASP.NET VSCode\bin\Debug\net7.0\ASP.NET VSCode.deps.json
+D:\Github\ASP.NET_Aptech\ASP.NET VSCode\bin\Debug\net7.0\ASP.NET VSCode.runtimeconfig.json
+D:\Github\ASP.NET_Aptech\ASP.NET VSCode\bin\Debug\net7.0\ASP.NET VSCode.dll
+D:\Github\ASP.NET_Aptech\ASP.NET VSCode\bin\Debug\net7.0\ASP.NET VSCode.pdb
+D:\Github\ASP.NET_Aptech\ASP.NET VSCode\obj\Debug\net7.0\ASP.NET VSCode.csproj.AssemblyReference.cache
+D:\Github\ASP.NET_Aptech\ASP.NET VSCode\obj\Debug\net7.0\ASP.NET VSCode.GeneratedMSBuildEditorConfig.editorconfig
+D:\Github\ASP.NET_Aptech\ASP.NET VSCode\obj\Debug\net7.0\ASP.NET VSCode.AssemblyInfoInputs.cache
+D:\Github\ASP.NET_Aptech\ASP.NET VSCode\obj\Debug\net7.0\ASP.NET VSCode.AssemblyInfo.cs
+D:\Github\ASP.NET_Aptech\ASP.NET VSCode\obj\Debug\net7.0\ASP.NET VSCode.csproj.CoreCompileInputs.cache
+D:\Github\ASP.NET_Aptech\ASP.NET VSCode\obj\Debug\net7.0\ASP.NET VSCode.MvcApplicationPartsAssemblyInfo.cache
+D:\Github\ASP.NET_Aptech\ASP.NET VSCode\obj\Debug\net7.0\ASP.NET VSCode.RazorAssemblyInfo.cache
+D:\Github\ASP.NET_Aptech\ASP.NET VSCode\obj\Debug\net7.0\ASP.NET VSCode.RazorAssemblyInfo.cs
+D:\Github\ASP.NET_Aptech\ASP.NET VSCode\obj\Debug\net7.0\staticwebassets\msbuild.ASP.NET VSCode.Microsoft.AspNetCore.StaticWebAssets.props
+D:\Github\ASP.NET_Aptech\ASP.NET VSCode\obj\Debug\net7.0\staticwebassets\msbuild.build.ASP.NET VSCode.props
+D:\Github\ASP.NET_Aptech\ASP.NET VSCode\obj\Debug\net7.0\staticwebassets\msbuild.buildMultiTargeting.ASP.NET VSCode.props
+D:\Github\ASP.NET_Aptech\ASP.NET VSCode\obj\Debug\net7.0\staticwebassets\msbuild.buildTransitive.ASP.NET VSCode.props
+D:\Github\ASP.NET_Aptech\ASP.NET VSCode\obj\Debug\net7.0\staticwebassets.pack.json
+D:\Github\ASP.NET_Aptech\ASP.NET VSCode\obj\Debug\net7.0\staticwebassets.build.json
+D:\Github\ASP.NET_Aptech\ASP.NET VSCode\obj\Debug\net7.0\staticwebassets.development.json
+D:\Github\ASP.NET_Aptech\ASP.NET VSCode\obj\Debug\net7.0\scopedcss\Views\Shared\_Layout.cshtml.rz.scp.css
+D:\Github\ASP.NET_Aptech\ASP.NET VSCode\obj\Debug\net7.0\scopedcss\bundle\ASP.NET VSCode.styles.css
+D:\Github\ASP.NET_Aptech\ASP.NET VSCode\obj\Debug\net7.0\scopedcss\projectbundle\ASP.NET VSCode.bundle.scp.css
+D:\Github\ASP.NET_Aptech\ASP.NET VSCode\obj\Debug\net7.0\ASP.NET VSCode.dll
+D:\Github\ASP.NET_Aptech\ASP.NET VSCode\obj\Debug\net7.0\refint\ASP.NET VSCode.dll
+D:\Github\ASP.NET_Aptech\ASP.NET VSCode\obj\Debug\net7.0\ASP.NET VSCode.pdb
+D:\Github\ASP.NET_Aptech\ASP.NET VSCode\obj\Debug\net7.0\ASP.NET VSCode.genruntimeconfig.cache
+D:\Github\ASP.NET_Aptech\ASP.NET VSCode\obj\Debug\net7.0\ref\ASP.NET VSCode.dll
