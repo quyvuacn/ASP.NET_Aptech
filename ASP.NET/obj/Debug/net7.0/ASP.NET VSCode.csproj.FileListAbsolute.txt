@@ -1,0 +1,31 @@
+E:\C#\ASP.NET VSCode\bin\Debug\net7.0\appsettings.Development.json
+E:\C#\ASP.NET VSCode\bin\Debug\net7.0\appsettings.json
+E:\C#\ASP.NET VSCode\bin\Debug\net7.0\ASP.NET VSCode.staticwebassets.runtime.json
+E:\C#\ASP.NET VSCode\bin\Debug\net7.0\ASP.NET VSCode.exe
+E:\C#\ASP.NET VSCode\bin\Debug\net7.0\ASP.NET VSCode.deps.json
+E:\C#\ASP.NET VSCode\bin\Debug\net7.0\ASP.NET VSCode.runtimeconfig.json
+E:\C#\ASP.NET VSCode\bin\Debug\net7.0\ASP.NET VSCode.dll
+E:\C#\ASP.NET VSCode\bin\Debug\net7.0\ASP.NET VSCode.pdb
+E:\C#\ASP.NET VSCode\obj\Debug\net7.0\ASP.NET VSCode.csproj.AssemblyReference.cache
+E:\C#\ASP.NET VSCode\obj\Debug\net7.0\ASP.NET VSCode.GeneratedMSBuildEditorConfig.editorconfig
+E:\C#\ASP.NET VSCode\obj\Debug\net7.0\ASP.NET VSCode.AssemblyInfoInputs.cache
+E:\C#\ASP.NET VSCode\obj\Debug\net7.0\ASP.NET VSCode.AssemblyInfo.cs
+E:\C#\ASP.NET VSCode\obj\Debug\net7.0\ASP.NET VSCode.csproj.CoreCompileInputs.cache
+E:\C#\ASP.NET VSCode\obj\Debug\net7.0\ASP.NET VSCode.MvcApplicationPartsAssemblyInfo.cache
+E:\C#\ASP.NET VSCode\obj\Debug\net7.0\ASP.NET VSCode.RazorAssemblyInfo.cache
+E:\C#\ASP.NET VSCode\obj\Debug\net7.0\ASP.NET VSCode.RazorAssemblyInfo.cs
+E:\C#\ASP.NET VSCode\obj\Debug\net7.0\staticwebassets\msbuild.ASP.NET VSCode.Microsoft.AspNetCore.StaticWebAssets.props
+E:\C#\ASP.NET VSCode\obj\Debug\net7.0\staticwebassets\msbuild.build.ASP.NET VSCode.props
+E:\C#\ASP.NET VSCode\obj\Debug\net7.0\staticwebassets\msbuild.buildMultiTargeting.ASP.NET VSCode.props
+E:\C#\ASP.NET VSCode\obj\Debug\net7.0\staticwebassets\msbuild.buildTransitive.ASP.NET VSCode.props
+E:\C#\ASP.NET VSCode\obj\Debug\net7.0\staticwebassets.pack.json
+E:\C#\ASP.NET VSCode\obj\Debug\net7.0\staticwebassets.build.json
+E:\C#\ASP.NET VSCode\obj\Debug\net7.0\staticwebassets.development.json
+E:\C#\ASP.NET VSCode\obj\Debug\net7.0\scopedcss\Views\Shared\_Layout.cshtml.rz.scp.css
+E:\C#\ASP.NET VSCode\obj\Debug\net7.0\scopedcss\bundle\ASP.NET VSCode.styles.css
+E:\C#\ASP.NET VSCode\obj\Debug\net7.0\scopedcss\projectbundle\ASP.NET VSCode.bundle.scp.css
+E:\C#\ASP.NET VSCode\obj\Debug\net7.0\ASP.NET VSCode.dll
+E:\C#\ASP.NET VSCode\obj\Debug\net7.0\refint\ASP.NET VSCode.dll
+E:\C#\ASP.NET VSCode\obj\Debug\net7.0\ASP.NET VSCode.pdb
+E:\C#\ASP.NET VSCode\obj\Debug\net7.0\ASP.NET VSCode.genruntimeconfig.cache
+E:\C#\ASP.NET VSCode\obj\Debug\net7.0\ref\ASP.NET VSCode.dll

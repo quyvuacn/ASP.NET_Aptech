@@ -1,0 +1,38 @@
+@inject WorldCup2022.Services.MatchService matchServices
+@{
+    ViewData["Title"] = "Matchs";
+    
+}
+
+<style>
+
+    .match-item{
+        cursor: pointer;
+        text-decoration: none;
+        color: #000;
+        display: flex;
+        gap: 12px;
+    }
+    .team,.score{
+        width: 120px;
+       
+    }
+</style>
+<div class="list-match">
+    @foreach (var match in matchServices)
+    {
+        <a asp-action="Show" asp-route-id="@match.Id" class="match-item">
+            <div class="team">
+                <span>
+                    @match.Team_1.Name
+                </span>
+            </div>
+            <div class="score">
+                @match.Score[0] - @match.Score[1]
+            </div>
+            <div class="team">
+                <span>@match.Team_2.Name</span>
+            </div>
+        </a>
+    }
+</div>
