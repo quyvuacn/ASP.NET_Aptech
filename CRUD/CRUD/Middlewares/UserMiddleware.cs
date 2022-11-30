@@ -11,7 +11,7 @@ namespace CRUD.Middlewares
             applicationBuilder.Use(async (context, next) =>
             {
                 
-                if (2==1)
+                if (1==1)
                 {
                     context.Response.Redirect("/movies/details/3");     
                 }
