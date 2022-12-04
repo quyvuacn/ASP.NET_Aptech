@@ -1,0 +1,190 @@
+﻿@model ShopASP.Areas.Admin.Models.CategoryViewModel
+
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<div class="content container-fluid">
+	<!-- Page Header -->
+	<div class="page-header">
+		<div class="row align-items-end">
+			<div class="col-sm mb-2 mb-sm-0">
+				<nav aria-label="breadcrumb">
+					<ol class="breadcrumb breadcrumb-no-gutter">
+						<li class="breadcrumb-item">
+							<a class="breadcrumb-link"
+							   href="javascript:;">Pages</a>
+						</li>
+						<li class="breadcrumb-item">
+							<a class="breadcrumb-link"
+							   href="javascript:;">Categories</a>
+						</li>
+						<li class="breadcrumb-item active"
+							aria-current="page">
+							Overview
+						</li>
+					</ol>
+				</nav>
+
+				<h1 class="page-header-title">Categories</h1>
+			</div>
+		</div>
+		<!-- End Row -->
+	</div>
+	<!-- End Page Header -->
+	<div class="row justify-content-lg-center">
+		<div class="col-lg-6 mb-3">
+			<form asp-controller="Categories" asp-action="Create" method="post">
+				<div class="input-group input-group-merge">
+					<div class="input-group-prepend input-group-text">
+						<i class="bi-c-square"></i>
+					</div>
+					<input type="text"
+						   class="form-control"
+						   placeholder="Name"
+						   aria-label="Name"
+						   asp-for="Category.Name"
+					>
+					<button class="btn btn-primary"><i class="bi bi-plus-circle"></i> Add</button>
+				</div>
+			</form>
+		</div>
+	</div>
+	
+	<!-- Card -->
+	<div class="card">
+		<div class="card-header card-header-content-md-between">
+			<div class="mb-2 mb-md-0">
+				<form asp-action="Index" method="get">
+					<!-- Search -->
+					<div class="input-group input-group-merge input-group-flush">
+						<div class="input-group-prepend input-group-text">
+							<i class="bi-search"></i>
+						</div>
+						<input id="datatableSearch"
+							   type="search"
+							   class="form-control"
+							   placeholder="Search categories"
+							   aria-label="Search categories"
+							   asp-for="search"
+						/>
+					</div>
+					<!-- End Search -->
+				</form>
+			</div>
+
+			<div class="d-grid d-sm-flex justify-content-md-end align-items-sm-center gap-2">
+				<div id="datatableWithCheckboxSelectCounterInfo"
+					 class="me-2"
+					 style="display: none">
+					<div class="d-flex align-items-center">
+						<span class="fs-5 me-3">
+							<span id="datatableWithCheckboxSelectCounter">0</span>
+							Selected
+						</span>
+						<a class="btn btn-sm btn-outline-danger"
+						   href="javascript:;">
+							<i class="bi bi-trash"></i> Delete
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- Table -->
+		<div class="table-responsive datatable-custom">
+			<table id="columnSorting"
+				   class="js-datatable table table-borderless table-thead-bordered table-nowrap table-align-middle card-table"
+				   data-hs-datatables-options='{
+                                "order": [],
+                                "columnDefs": [
+                                    {
+                                        "targets" : [0,4],
+                                        "orderable" : false
+                                    }
+                                ],
+                                "entries": "#datatableEntries",
+                                "isResponsive": false,
+                                "isShowPaging": false,
+                                "pagination": "datatableEntriesPagination",
+                                "search": "#datatableWithFilterSearch",
+                                "info": {
+                                    "totalQty": "#datatableWithPaginationInfoTotalQty"
+                                }
+                            }'>
+				<thead class="thead-light">
+					<tr>
+						<th class="table-column-pe-0">
+							<div class="form-check">
+								<input type="checkbox"
+									   class="form-check-input"
+									   id="datatableWithCheckboxSelectAll" />
+								<label class="form-check-label"
+									   for="datatableWithCheckboxSelectAll"></label>
+							</div>
+						</th>
+						<th>Name</th>
+						<th>CreatedAt</th>
+						<th>UpdatedAt</th>
+						<th>Action</th>
+					</tr>
+				</thead>
+
+				<tbody>
+					@foreach (var item in Model.Categories!)
+					{
+						<partial name="CategoryPartial" model="item" />
+					}
+
+				</tbody>
+			</table>
+		</div>
+		<!-- End Table -->
+		<div class="card-footer">
+			<div class="row justify-content-center justify-content-sm-between align-items-sm-center">
+				<div class="col-sm mb-2 mb-sm-0">
+					<div class="d-flex justify-content-center justify-content-sm-start align-items-center">
+						<span class="me-2">Showing:</span>
+
+						<!-- Select -->
+						<div class="tom-select-custom">
+							<select id="datatableEntries"
+									class="js-select form-select form-select-borderless w-auto"
+									autocomplete="off"
+									data-hs-tom-select-options='{
+                            "searchInDropdown": false,
+                            "hideSearch": true
+                          }'>
+								<option value="3">3</option>
+								<option value="6" selected="">
+									6
+								</option>
+								<option value="9">9</option>
+							</select>
+						</div>
+						<!-- End Select -->
+
+						<span class="text-secondary me-2">of</span>
+
+						<!-- Pagination Quantity -->
+						<span id="datatableWithPaginationInfoTotalQty"></span>
+					</div>
+				</div>
+				<!-- End Col -->
+
+				<div class="col-sm-auto">
+					<div class="d-flex justify-content-center justify-content-sm-end">
+						<!-- Pagination -->
+						<nav id="datatableEntriesPagination"
+							 aria-label="Activity pagination"></nav>
+					</div>
+				</div>
+				<!-- End Col -->
+			</div>
+			<!-- End Row -->
+		</div>
+	</div>
+
+	<!-- End Card -->
+</div>

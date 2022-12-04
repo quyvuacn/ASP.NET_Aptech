@@ -1,0 +1,36 @@
+﻿@using ShopASP.Areas.Admin.Models
+@using Newtonsoft.Json
+@{
+    string notification = (string)TempData["notification"];
+}
+@if (!String.IsNullOrEmpty(notification))
+{
+    <div id="tataNotification" data-notification="@notification"></div>
+
+}
+<script src="~/admin/js/tada.js"></script>
+<script>
+    let action = document.querySelector("#tataNotification")
+    if(action){
+        let key = action.getAttribute("data-notification")
+        switch(key){
+            case "success":
+                message = "Successful manipulation." 
+                break
+            case "error": 
+                message = "Unable to perform above action."
+                break
+            case "warning": 
+                message = "The above action may cause an error."
+                break
+            default :
+                message = "Hello!"
+
+        }
+        tata[key]('Notification', message,{
+            duration: 2500,
+            closeBtn: false
+        })
+    }
+    
+</script>

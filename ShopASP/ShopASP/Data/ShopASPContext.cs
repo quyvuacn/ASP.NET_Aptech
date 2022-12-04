@@ -26,11 +26,8 @@ namespace ShopASP.Data
             {
                 ((BaseEntity)entityEntry.Entity).UpdatedDate = DateTime.Now;
 
-                if (entityEntry.State == EntityState.Added)
-                {
-                    Console.WriteLine(entityEntry.Entity.ToString());
-                    ((BaseEntity)entityEntry.Entity).CreatedDate = DateTime.Now;
-                }
+				((BaseEntity)entityEntry.Entity).CreatedDate= ((BaseEntity)entityEntry.Entity).CreatedDate ?? DateTime.Now;
+
             }
 
             return base.SaveChanges();
@@ -47,12 +44,15 @@ namespace ShopASP.Data
             {
                 ((BaseEntity)entityEntry.Entity).UpdatedDate = DateTime.Now;
 
-                if (entityEntry.State == EntityState.Added)
-                {
-                    ((BaseEntity)entityEntry.Entity).CreatedDate = DateTime.Now;
-                }
-            }
-            return await base.SaveChangesAsync(true, cancellationToken).ConfigureAwait(false);
+				((BaseEntity)entityEntry.Entity).CreatedDate= ((BaseEntity)entityEntry.Entity).CreatedDate ?? DateTime.Now;
+
+			}
+			return await base.SaveChangesAsync(true, cancellationToken).ConfigureAwait(false);
+        }
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            //Config many-many : Tag-Product
+            modelBuilder.Entity<ProductTag>().HasKey(pt => new { pt.ProductId, pt.TagId });
         }
 
         public DbSet<ShopASP.Models.User> User { get; set; } = default!;
@@ -63,10 +63,12 @@ namespace ShopASP.Data
         public DbSet<ShopASP.Models.ProductComment> ProductComment { get; set; } = default!;
         public DbSet<ShopASP.Models.ProductDetail> ProductDetail { get; set; } = default!;
         public DbSet<ShopASP.Models.ProductImage> ProductImage { get; set; } = default!;
+        public DbSet<ShopASP.Models.Tag> Tag { get; set; } = default!;
         public DbSet<ShopASP.Models.ProductTag> ProductTag { get; set; } = default!;
         public DbSet<ShopASP.Models.Order> Order { get; set; } = default!;
         public DbSet<ShopASP.Models.OrderDetail> OrderDetail { get; set; } = default!;
         public DbSet<ShopASP.Models.Blog> Blog { get; set; } = default!;
         public DbSet<ShopASP.Models.BlogComment> BlogComment { get; set; } = default!;
+        
     }   
 }

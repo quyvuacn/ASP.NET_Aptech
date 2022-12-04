@@ -12,7 +12,7 @@ namespace ShopASP.Middlewares
                 {
                     //TempData["Message"] : session dùng 1 lần
                     tempDataProvider.SaveTempData(context, new Dictionary<string, object> { ["Message"] = "Sử dụng TempData" });
-                    context.Response.Redirect("/Upload");
+                    context.Response.Redirect("/Admin/Users");
                 }
                 await next(context);
             });

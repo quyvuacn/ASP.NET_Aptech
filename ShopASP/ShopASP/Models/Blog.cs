@@ -8,5 +8,7 @@
         public string Image { get; set; }
         public string Tag { get; set; }
         public string Content { get; set; }
-    }
+        public ICollection<BlogComment>? BlogComments { get; set; }
+
+	}
 }

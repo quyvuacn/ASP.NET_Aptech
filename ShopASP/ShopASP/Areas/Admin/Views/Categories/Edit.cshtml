@@ -1,0 +1,71 @@
+﻿@model ShopASP.Models.Category
+
+@{
+    ViewData["Title"] = "Edit";
+}
+<div class="content container-fluid">
+	<!-- Page Header -->
+	<div class="page-header">
+		<div class="row align-items-end">
+			<div class="col-sm mb-2 mb-sm-0">
+				<nav aria-label="breadcrumb">
+					<ol class="breadcrumb breadcrumb-no-gutter">
+						<li class="breadcrumb-item">
+							<a class="breadcrumb-link"
+							   href="javascript:;">Pages</a>
+						</li>
+						<li class="breadcrumb-item">
+							<a class="breadcrumb-link"
+							   href="javascript:;">Categories</a>
+						</li>
+						<li class="breadcrumb-item active"
+							aria-current="page">
+							Edit
+						</li>
+					</ol>
+				</nav>
+
+				<h1 class="page-header-title">Brands</h1>
+			</div>
+		</div>
+		<!-- End Row -->
+	</div>
+	<!-- End Page Header -->
+	<div class="row justify-content-lg-center">
+		<div class="col-lg-6 mb-3">
+			<form asp-action="Edit" method="post">
+				<div class="input-group mb-3">
+					<div class="input-group-prepend input-group-text">
+						ID
+					</div>
+					<input type="text"
+						   class="form-control"
+						   placeholder="Name"
+						   aria-label="Name"
+						   disabled
+						   asp-for="Id"
+						   value="@Model.Id" />
+				</div>
+				<div class="input-group mb-3">
+					<div class="input-group-prepend input-group-text" >
+						<i class="bi-c-square"></i>
+					</div>
+					<input type="text"
+						   class="form-control"
+						   placeholder="Name"
+						   aria-label="Name"
+						   asp-for="Name" 
+						   value="@Model.Name"
+					/>
+					
+				</div>
+				<div class="input-group">
+					<a class="btn btn-sm" asp-action="Index">Back</a>
+					<div class="ms-auto">
+						<button class="btn btn-primary btn-sm"><i class="bi bi-save"></i> Save</button>
+					</div>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>

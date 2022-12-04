@@ -35,7 +35,8 @@ namespace ShopASP.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime?>("CreatedDate")
-                        .HasColumnType("datetime2");
+                        .HasColumnType("datetime2")
+                        .HasColumnName("CreatedAt");
 
                     b.Property<string>("Image")
                         .IsRequired()
@@ -54,7 +55,8 @@ namespace ShopASP.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime?>("UpdatedDate")
-                        .HasColumnType("datetime2");
+                        .HasColumnType("datetime2")
+                        .HasColumnName("UpdatedAt");
 
                     b.HasKey("Id");
 
@@ -73,19 +75,23 @@ namespace ShopASP.Migrations
                         .HasColumnType("int");
 
                     b.Property<DateTime?>("CreatedDate")
-                        .HasColumnType("datetime2");
+                        .HasColumnType("datetime2")
+                        .HasColumnName("CreatedAt");
 
                     b.Property<string>("Message")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime?>("UpdatedDate")
-                        .HasColumnType("datetime2");
+                        .HasColumnType("datetime2")
+                        .HasColumnName("UpdatedAt");
 
                     b.Property<int>("UserId")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("BlogId");
 
                     b.ToTable("BlogComment");
                 });
@@ -99,14 +105,16 @@ namespace ShopASP.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<DateTime?>("CreatedDate")
-                        .HasColumnType("datetime2");
+                        .HasColumnType("datetime2")
+                        .HasColumnName("CreatedAt");
 
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime?>("UpdatedDate")
-                        .HasColumnType("datetime2");
+                        .HasColumnType("datetime2")
+                        .HasColumnName("UpdatedAt");
 
                     b.HasKey("Id");
 
@@ -122,14 +130,16 @@ namespace ShopASP.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<DateTime?>("CreatedDate")
-                        .HasColumnType("datetime2");
+                        .HasColumnType("datetime2")
+                        .HasColumnName("CreatedAt");
 
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime?>("UpdatedDate")
-                        .HasColumnType("datetime2");
+                        .HasColumnType("datetime2")
+                        .HasColumnName("UpdatedAt");
 
                     b.HasKey("Id");
 
@@ -157,7 +167,8 @@ namespace ShopASP.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime?>("CreatedDate")
-                        .HasColumnType("datetime2");
+                        .HasColumnType("datetime2")
+                        .HasColumnName("CreatedAt");
 
                     b.Property<string>("Phone")
                         .IsRequired()
@@ -178,12 +189,15 @@ namespace ShopASP.Migrations
                         .HasColumnType("float");
 
                     b.Property<DateTime?>("UpdatedDate")
-                        .HasColumnType("datetime2");
+                        .HasColumnType("datetime2")
+                        .HasColumnName("UpdatedAt");
 
                     b.Property<int>("UserId")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("UserId");
 
                     b.ToTable("Order");
                 });
@@ -201,9 +215,13 @@ namespace ShopASP.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime?>("CreatedDate")
-                        .HasColumnType("datetime2");
+                        .HasColumnType("datetime2")
+                        .HasColumnName("CreatedAt");
 
                     b.Property<int>("OrderId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("ProductId")
                         .HasColumnType("int");
 
                     b.Property<int>("Qty")
@@ -217,9 +235,14 @@ namespace ShopASP.Migrations
                         .HasColumnType("float");
 
                     b.Property<DateTime?>("UpdatedDate")
-                        .HasColumnType("datetime2");
+                        .HasColumnType("datetime2")
+                        .HasColumnName("UpdatedAt");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("OrderId");
+
+                    b.HasIndex("ProductId");
 
                     b.ToTable("OrderDetail");
                 });
@@ -239,7 +262,8 @@ namespace ShopASP.Migrations
                         .HasColumnType("int");
 
                     b.Property<DateTime?>("CreatedDate")
-                        .HasColumnType("datetime2");
+                        .HasColumnType("datetime2")
+                        .HasColumnName("CreatedAt");
 
                     b.Property<string>("Description")
                         .IsRequired()
@@ -257,7 +281,8 @@ namespace ShopASP.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime?>("UpdatedDate")
-                        .HasColumnType("datetime2");
+                        .HasColumnType("datetime2")
+                        .HasColumnName("UpdatedAt");
 
                     b.Property<double>("Weight")
                         .HasColumnType("float");
@@ -280,7 +305,8 @@ namespace ShopASP.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<DateTime?>("CreatedDate")
-                        .HasColumnType("datetime2");
+                        .HasColumnType("datetime2")
+                        .HasColumnName("CreatedAt");
 
                     b.Property<string>("Message")
                         .IsRequired()
@@ -293,12 +319,15 @@ namespace ShopASP.Migrations
                         .HasColumnType("int");
 
                     b.Property<DateTime?>("UpdatedDate")
-                        .HasColumnType("datetime2");
+                        .HasColumnType("datetime2")
+                        .HasColumnName("UpdatedAt");
 
                     b.Property<int>("UserId")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("ProductId");
 
                     b.ToTable("ProductComment");
                 });
@@ -316,7 +345,8 @@ namespace ShopASP.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime?>("CreatedDate")
-                        .HasColumnType("datetime2");
+                        .HasColumnType("datetime2")
+                        .HasColumnName("CreatedAt");
 
                     b.Property<int>("ProductId")
                         .HasColumnType("int");
@@ -329,9 +359,12 @@ namespace ShopASP.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime?>("UpdatedDate")
-                        .HasColumnType("datetime2");
+                        .HasColumnType("datetime2")
+                        .HasColumnName("UpdatedAt");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("ProductId");
 
                     b.ToTable("ProductDetail");
                 });
@@ -345,7 +378,8 @@ namespace ShopASP.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<DateTime?>("CreatedDate")
-                        .HasColumnType("datetime2");
+                        .HasColumnType("datetime2")
+                        .HasColumnName("CreatedAt");
 
                     b.Property<string>("Path")
                         .IsRequired()
@@ -355,7 +389,8 @@ namespace ShopASP.Migrations
                         .HasColumnType("int");
 
                     b.Property<DateTime?>("UpdatedDate")
-                        .HasColumnType("datetime2");
+                        .HasColumnType("datetime2")
+                        .HasColumnName("UpdatedAt");
 
                     b.HasKey("Id");
 
@@ -366,6 +401,21 @@ namespace ShopASP.Migrations
 
             modelBuilder.Entity("ShopASP.Models.ProductTag", b =>
                 {
+                    b.Property<int>("ProductId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("TagId")
+                        .HasColumnType("int");
+
+                    b.HasKey("ProductId", "TagId");
+
+                    b.HasIndex("TagId");
+
+                    b.ToTable("ProductTag");
+                });
+
+            modelBuilder.Entity("ShopASP.Models.Tag", b =>
+                {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
@@ -373,21 +423,20 @@ namespace ShopASP.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<DateTime?>("CreatedDate")
-                        .HasColumnType("datetime2");
+                        .HasColumnType("datetime2")
+                        .HasColumnName("CreatedAt");
 
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("ProductId")
-                        .HasColumnType("int");
-
                     b.Property<DateTime?>("UpdatedDate")
-                        .HasColumnType("datetime2");
+                        .HasColumnType("datetime2")
+                        .HasColumnName("UpdatedAt");
 
                     b.HasKey("Id");
 
-                    b.ToTable("ProductTag");
+                    b.ToTable("Tag");
                 });
 
             modelBuilder.Entity("ShopASP.Models.User", b =>
@@ -402,8 +451,12 @@ namespace ShopASP.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int?>("BlogCommentId")
+                        .HasColumnType("int");
+
                     b.Property<DateTime?>("CreatedDate")
-                        .HasColumnType("datetime2");
+                        .HasColumnType("datetime2")
+                        .HasColumnName("CreatedAt");
 
                     b.Property<string>("Email")
                         .IsRequired()
@@ -420,10 +473,22 @@ namespace ShopASP.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("Phone")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int?>("ProductCommentId")
+                        .HasColumnType("int");
+
                     b.Property<DateTime?>("UpdatedDate")
-                        .HasColumnType("datetime2");
+                        .HasColumnType("datetime2")
+                        .HasColumnName("UpdatedAt");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("BlogCommentId");
+
+                    b.HasIndex("ProductCommentId");
 
                     b.ToTable("User");
                 });
@@ -449,7 +514,8 @@ namespace ShopASP.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime?>("CreatedDate")
-                        .HasColumnType("datetime2");
+                        .HasColumnType("datetime2")
+                        .HasColumnName("CreatedAt");
 
                     b.Property<string>("Phone")
                         .IsRequired()
@@ -464,14 +530,58 @@ namespace ShopASP.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime?>("UpdatedDate")
-                        .HasColumnType("datetime2");
+                        .HasColumnType("datetime2")
+                        .HasColumnName("UpdatedAt");
 
                     b.Property<int>("UserId")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
 
+                    b.HasIndex("UserId");
+
                     b.ToTable("UserAddresses");
+                });
+
+            modelBuilder.Entity("ShopASP.Models.BlogComment", b =>
+                {
+                    b.HasOne("ShopASP.Models.Blog", "Blog")
+                        .WithMany("BlogComments")
+                        .HasForeignKey("BlogId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Blog");
+                });
+
+            modelBuilder.Entity("ShopASP.Models.Order", b =>
+                {
+                    b.HasOne("ShopASP.Models.User", "User")
+                        .WithMany("Orders")
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("User");
+                });
+
+            modelBuilder.Entity("ShopASP.Models.OrderDetail", b =>
+                {
+                    b.HasOne("ShopASP.Models.Order", "Order")
+                        .WithMany("orderDetails")
+                        .HasForeignKey("OrderId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("ShopASP.Models.Product", "Product")
+                        .WithMany("OrderDetails")
+                        .HasForeignKey("ProductId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Order");
+
+                    b.Navigation("Product");
                 });
 
             modelBuilder.Entity("ShopASP.Models.Product", b =>
@@ -493,6 +603,28 @@ namespace ShopASP.Migrations
                     b.Navigation("Category");
                 });
 
+            modelBuilder.Entity("ShopASP.Models.ProductComment", b =>
+                {
+                    b.HasOne("ShopASP.Models.Product", "Product")
+                        .WithMany("ProductComments")
+                        .HasForeignKey("ProductId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Product");
+                });
+
+            modelBuilder.Entity("ShopASP.Models.ProductDetail", b =>
+                {
+                    b.HasOne("ShopASP.Models.Product", "Product")
+                        .WithMany("ProductDetails")
+                        .HasForeignKey("ProductId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Product");
+                });
+
             modelBuilder.Entity("ShopASP.Models.ProductImage", b =>
                 {
                     b.HasOne("ShopASP.Models.Product", "Product")
@@ -502,6 +634,57 @@ namespace ShopASP.Migrations
                         .IsRequired();
 
                     b.Navigation("Product");
+                });
+
+            modelBuilder.Entity("ShopASP.Models.ProductTag", b =>
+                {
+                    b.HasOne("ShopASP.Models.Product", "Product")
+                        .WithMany("ProductComment")
+                        .HasForeignKey("ProductId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("ShopASP.Models.Tag", "Tag")
+                        .WithMany("Products")
+                        .HasForeignKey("TagId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Product");
+
+                    b.Navigation("Tag");
+                });
+
+            modelBuilder.Entity("ShopASP.Models.User", b =>
+                {
+                    b.HasOne("ShopASP.Models.BlogComment", null)
+                        .WithMany("Users")
+                        .HasForeignKey("BlogCommentId");
+
+                    b.HasOne("ShopASP.Models.ProductComment", null)
+                        .WithMany("Users")
+                        .HasForeignKey("ProductCommentId");
+                });
+
+            modelBuilder.Entity("ShopASP.Models.UserAddress", b =>
+                {
+                    b.HasOne("ShopASP.Models.User", "User")
+                        .WithMany("UserAddresses")
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("User");
+                });
+
+            modelBuilder.Entity("ShopASP.Models.Blog", b =>
+                {
+                    b.Navigation("BlogComments");
+                });
+
+            modelBuilder.Entity("ShopASP.Models.BlogComment", b =>
+                {
+                    b.Navigation("Users");
                 });
 
             modelBuilder.Entity("ShopASP.Models.Brand", b =>
@@ -514,9 +697,39 @@ namespace ShopASP.Migrations
                     b.Navigation("Products");
                 });
 
+            modelBuilder.Entity("ShopASP.Models.Order", b =>
+                {
+                    b.Navigation("orderDetails");
+                });
+
             modelBuilder.Entity("ShopASP.Models.Product", b =>
                 {
+                    b.Navigation("OrderDetails");
+
+                    b.Navigation("ProductComment");
+
+                    b.Navigation("ProductComments");
+
+                    b.Navigation("ProductDetails");
+
                     b.Navigation("ProductImages");
+                });
+
+            modelBuilder.Entity("ShopASP.Models.ProductComment", b =>
+                {
+                    b.Navigation("Users");
+                });
+
+            modelBuilder.Entity("ShopASP.Models.Tag", b =>
+                {
+                    b.Navigation("Products");
+                });
+
+            modelBuilder.Entity("ShopASP.Models.User", b =>
+                {
+                    b.Navigation("Orders");
+
+                    b.Navigation("UserAddresses");
                 });
 #pragma warning restore 612, 618
         }

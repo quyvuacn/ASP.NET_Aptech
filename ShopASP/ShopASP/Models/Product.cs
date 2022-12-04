@@ -13,9 +13,15 @@ namespace ShopASP.Models
         public double Price { get; set; }
         public double Weight { get; set; }
         public string Sku { get; set; }
-        public Category? Category { get; set; }
-        public Brand? Brand { get; set; }
-        public ICollection<ProductImage>? ProductImages { get; set; }
 
-    }
+        public Category Category { get; set; }
+		public Brand Brand { get; set; }
+
+		public ICollection<ProductTag>? ProductComment { get; set; }
+		public ICollection<ProductComment>? ProductComments { get; set; }
+		public ICollection<ProductImage>? ProductImages { get; set; }
+		public ICollection<ProductDetail>? ProductDetails { get; set; }
+        public ICollection<OrderDetail>? OrderDetails { get; set; }
+
+	}
 }

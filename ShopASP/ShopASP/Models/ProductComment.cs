@@ -7,5 +7,9 @@
         public int UserId { get; set; }
         public string Message { get; set; }
         public int Rating { get; set; }
-    }
+
+        public Product? Product { get; set; }
+		public ICollection<User>? Users { get; set; }
+
+	}
 }

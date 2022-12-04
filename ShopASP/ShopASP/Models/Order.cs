@@ -1,4 +1,6 @@
-﻿namespace ShopASP.Models
+﻿using NuGet.Protocol.Plugins;
+
+namespace ShopASP.Models
 {
     public class Order : BaseEntity
     {
@@ -12,5 +14,9 @@
         public string Phone { get; set; }
         public double Subtotal { get; set; }
         public int Status { get; set; }
-    }
+
+		public User? User { get; set; }
+		public ICollection<OrderDetail>? orderDetails { get; set; }
+
+	}
 }
