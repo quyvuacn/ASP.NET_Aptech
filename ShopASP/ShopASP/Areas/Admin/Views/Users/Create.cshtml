@@ -1,19 +1,20 @@
 ﻿@using ShopASP.Extensions
-@model ShopASP.Models.User
+@model ShopASP.Areas.Admin.Models.UserViewModel
 
 @{
 	ViewData["Title"] = "Create";
 	var levels =new USER_LEVEL();
 }
-<div class="content container-fluid">
+<div id="create-user" class="content container-fluid">
 	<!-- Step Form -->
-	<form class="js-step-form py-md-5"
-		  data-hs-step-form-options='{
-              "progressSelector": "#addUserStepFormProgress",
-              "stepsSelector": "#addUserStepFormContent",
-              "endSelector": "#addUserFinishBtn",
-              "isValidate": false
-            }'>
+	<form enctype="multipart/form-data"
+		method="post" asp-action="Create"
+		class="js-step-form py-md-5"
+		data-hs-step-form-options='{
+            "progressSelector": "#addUserStepFormProgress",
+            "stepsSelector": "#addUserStepFormContent",
+            "isValidate": false
+        }'>
 		<div class="row justify-content-lg-center">
 			<div class="col-lg-8">
 				<!-- Step -->
@@ -80,17 +81,20 @@
 												 src="admin	/img/160x160/img1.jpg"
 												 alt="Image Description" />
 
-											<input type="file"
-												   class="js-file-attach avatar-uploader-input"
-												   id="avatarUploader"
-												   data-hs-file-attach-options='{
-                                    "textTarget": "#avatarImg",
-                                    "mode": "image",
-                                    "targetAttr": "src",
-                                    "resetTarget": ".js-file-attach-reset-img",
-                                    "resetImg": "./admin/img/160x160/img1.jpg",
-                                    "allowTypes": [".png", ".jpeg", ".jpg"]
-                                 }' />
+											<input 
+												asp-for="userAvatar"
+												type="file"
+												class="js-file-attach avatar-uploader-input"
+												id="avatarUploader"
+												data-hs-file-attach-options='{
+												"textTarget": "#avatarImg",
+												"mode": "image",
+												"targetAttr": "src",
+												"resetTarget": ".js-file-attach-reset-img",
+												"resetImg": "./admin/img/160x160/img1.jpg",
+												"allowTypes": [".png", ".jpeg", ".jpg"]
+												}' 
+											/>
 
 											<span class="avatar-uploader-trigger">
 												<i class="bi-pencil avatar-uploader-icon shadow-sm"></i>
@@ -108,7 +112,7 @@
 							<!-- End Form -->
 							<!-- Form -->
 							<div class="row mb-4">
-								<label for="firstNameLabel"
+								<label for="nameLabel"
 									   class="col-sm-3 col-form-label form-label">
 									Name
 									<i class="bi-question-circle text-body ms-1"
@@ -119,12 +123,14 @@
 
 								<div class="col-sm-9">
 									<div class="input-group input-group-sm-vertical">
-										<input type="text"
-											   class="form-control"
-											   name="name"
-											   id="firstNameLabel"
-											   placeholder="Clarice"
-											   aria-label="Clarice" />
+										<input 
+											asp-for="User.Name"
+											type="text"
+											class="form-control"
+											id="nameLabel"
+											placeholder="Clarice"
+											aria-label="Clarice" 
+										/>
 									</div>
 								</div>
 							</div>
@@ -136,12 +142,14 @@
 									   class="col-sm-3 col-form-label form-label">Email</label>
 
 								<div class="col-sm-9">
-									<input type="email"
-										   class="form-control"
-										   name="email"
-										   id="emailLabel"
-										   placeholder="Email"
-										   aria-label="Email" />
+									<input 
+										asp-for="User.Email"
+										type="email"
+										class="form-control"
+										id="emailLabel"
+										placeholder="Email"
+										aria-label="Email" 
+									/>
 								</div>
 							</div>
 							<!-- End Form -->
@@ -152,10 +160,13 @@
 
 								<div class="col-sm-9">
 									<div class="input-group input-group-merge">
-									  <input type="password" class="js-toggle-password form-control" id="passwordLabel" placeholder="Enter password"
+									  <input 
+										  asp-for="User.Password"
+										  type="password" class="js-toggle-password form-control" 
+										  id="passwordLabel" placeholder="Enter password"
 											 data-hs-toggle-password-options='{
 											   "target": ".js-password-toggle-show-target",
-											   "show": true,
+											   "show": false,
 											   "defaultClass": "bi-eye-slash",
 											   "showClass": "bi-eye",
 											   "classChangeTarget": ".changePasswordShowIcon"
@@ -174,10 +185,13 @@
 
 								<div class="col-sm-9">
 									<div class="input-group input-group-merge">
-									  <input type="password" class="js-toggle-password form-control" id="repasswordLabel" placeholder="Enter repassword"
-											 data-hs-toggle-password-options='{
+									  <input 
+										  asp-for="rePassword"
+										  type="password" class="js-toggle-password form-control" 
+										  id="repasswordLabel" placeholder="Enter repassword"
+										  data-hs-toggle-password-options='{
 											   "target": ".js-password-toggle-show-target",
-											   "show": true,
+											   "show": false,
 											   "defaultClass": "bi-eye-slash",
 											   "showClass": "bi-eye",
 											   "classChangeTarget": ".changePasswordShowIcon"
@@ -205,15 +219,15 @@
 
 								<div class="col-sm-9">
 									<div class="input-group input-group-sm-vertical">
-										<input type="text"
-											   class="js-input-mask form-control"
-											   name="phone"
-											   id="phoneLabel"
-											   placeholder="+x(xxx)xxx-xx-xx"
-											   aria-label="+x(xxx)xxx-xx-xx"
-											   data-hs-mask-options='{
-                                 "mask": "+0(000)000-00-00"
-                               }' />
+										<input 
+											asp-for="User.Phone"
+											type="text"
+											class="js-input-mask form-control"
+											id="phoneLabel"
+											placeholder="+x(xxx)xxx-xx-xx"
+											aria-label="+x(xxx)xxx-xx-xx"
+											data-hs-mask-options='{"mask": "0000 000 000"}' 
+										/>
 									</div>
 
 									<!-- Container For Input Field -->
@@ -229,7 +243,10 @@
 								</label>
 								<div class="col-sm-9">
 									<div class="tom-select-custom">
-										  <select class="js-select form-select" autocomplete="off" value = "0"
+										  <select 
+											  asp-for="User.Level"
+											  id="levelLabel"
+											  class="js-select form-select" autocomplete="off" value = "0"
 												data-hs-tom-select-options='{"placeholder": "Select a level...","hideSearch": true}'>
 											@foreach (var level in levels.ToDictionary())
 											{
@@ -266,27 +283,6 @@
 						<div class="card-body">
 							<!-- Form -->
 							<div class="row mb-4">
-								<label for="addressEmail"
-									   class="col-sm-3 col-form-label form-label">
-									   Email
-									<i class="bi-question-circle text-body ms-1"
-									   data-bs-toggle="tooltip"
-									   data-bs-placement="top"
-									   title="Email address where we can send information about your orders."></i>
-								</label>
-
-								<div class="col-sm-9">
-									<input type="text"
-										   class="form-control"
-										   name="addressLine1"
-										   id="addressEmail"
-										   placeholder="Your Email"
-										   aria-label="Your Email" />
-								</div>
-							</div>
-							<!-- End Form -->
-							<!-- Form -->
-							<div class="row mb-4">
 								<label for="addressPhone"
 									   class="col-sm-3 col-form-label form-label">
 									   Phone
@@ -297,12 +293,14 @@
 								</label>
 
 								<div class="col-sm-9">
-									<input type="text"
-										   class="form-control"
-										   name="addressLine1"
-										   id="addressPhone"
-										   placeholder="Your Phone"
-										   aria-label="Your Phone" />
+									<input 
+										asp-for="UserAdress.Phone"
+										type="text"
+										class="form-control"
+										id="addressPhone"
+										placeholder="Your Phone"
+										aria-label="Your Phone" 
+										/>
 								</div>
 							</div>
 							<!-- End Form -->
@@ -312,9 +310,10 @@
 									   class="col-sm-3 col-form-label form-label">Country</label>
 
 								<div class="col-sm-9">
-									<input type="text"
+									<input 
+										asp-for="UserAdress.Country"
+										type="text"
 										   class="form-control"
-										   name="addressLine1"
 										   id="addressCountry"
 										   placeholder="Your Country"
 										   aria-label="Your Country" />
@@ -327,9 +326,10 @@
 									   class="col-sm-3 col-form-label form-label">Company</label>
 
 								<div class="col-sm-9">
-									<input type="text"
+									<input 
+										asp-for="UserAdress.Company"
+										type="text"
 										   class="form-control"
-										   name="addressLine1"
 										   id="addressCompany"
 										   placeholder="Your Company"
 										   aria-label="Your Company" />
@@ -342,9 +342,10 @@
 									   class="col-sm-3 col-form-label form-label">City</label>
 
 								<div class="col-sm-9">
-									<input type="text"
+									<input 
+										asp-for="UserAdress.City"
+										type="text"
 										   class="form-control"
-										   name="addressLine1"
 										   id="addressCity"
 										   placeholder="Your City"
 										   aria-label="Your City" />
@@ -359,9 +360,10 @@
 								</label>
 
 								<div class="col-sm-9">
-									<input type="text"
+									<input 
+										asp-for="UserAdress.StreetAddress"
+										type="text"
 										   class="form-control"
-										   name="zipCode"
 										   id="StreetAddress"
 										   placeholder="Your Street Address"
 										   aria-label="Your Street Address"
@@ -381,9 +383,10 @@
 								</label>
 
 								<div class="col-sm-9">
-									<input type="text"
+									<input 
+										asp-for="UserAdress.PostalCode"
+										type="text"
 										   class="js-input-mask form-control"
-										   name="zipCode"
 										   id="PostalCode"
 										   placeholder="Your zip code"
 										   aria-label="Your zip code"
@@ -435,8 +438,10 @@
 						<!-- End Profile Cover -->
 						<!-- Avatar -->
 						<div class="avatar avatar-xxl avatar-circle avatar-border-lg profile-cover-avatar">
-							<img class="avatar-img"
-								 src="admin/img/160x160/img9.jpg"
+							<img 
+								id="avatarReview"
+								class="avatar-img"
+								 src="front/images/users/default-user.png"
 								 alt="Image Description" />
 						</div>
 						<!-- End Avatar -->
@@ -446,73 +451,27 @@
 								<dt class="col-sm-6 text-sm-end">
 									Name:
 								</dt>
-								<dd class="col-sm-6">Ella Lauda</dd>
+								<dd class="col-sm-6" id="nameLabelReview"> _ </dd>
 
 								<dt class="col-sm-6 text-sm-end">
 									Email:
 								</dt>
-								<dd class="col-sm-6">
-									ella@site.com
+								<dd  id="emailLabelReview" class="col-sm-6">
+									_
 								</dd>
 
 								<dt class="col-sm-6 text-sm-end">
 									Phone:
 								</dt>
-								<dd class="col-sm-6">
-									+1 (609) 972-22-22
+								<dd id="phoneLabelReview" class="col-sm-6">
+									_
 								</dd>
-
 								<dt class="col-sm-6 text-sm-end">
-									Organization:
+									Level:
 								</dt>
-								<dd class="col-sm-6">Htmlstream</dd>
-
-								<dt class="col-sm-6 text-sm-end">
-									Department:
-								</dt>
-								<dd class="col-sm-6">-</dd>
-
-								<dt class="col-sm-6 text-sm-end">
-									Account type:
-								</dt>
-								<dd class="col-sm-6">Individual</dd>
-
-								<dt class="col-sm-6 text-sm-end">
-									Country:
-								</dt>
-								<dd class="col-sm-6">
-									<img class="avatar avatar-xss avatar-circle me-1"
-										 src="admin/vendor/flag-icon-css/flags/1x1/gb.svg"
-										 alt="Great Britain Flag" />
-									United Kingdom
+								<dd id="levelLabelReview" class="col-sm-6">
+									_
 								</dd>
-
-								<dt class="col-sm-6 text-sm-end">
-									City:
-								</dt>
-								<dd class="col-sm-6">London</dd>
-
-								<dt class="col-sm-6 text-sm-end">
-									State:
-								</dt>
-								<dd class="col-sm-6">-</dd>
-
-								<dt class="col-sm-6 text-sm-end">
-									Address line 1:
-								</dt>
-								<dd class="col-sm-6">
-									45 Roker Terrace, Latheronwheel
-								</dd>
-
-								<dt class="col-sm-6 text-sm-end">
-									Address line 2:
-								</dt>
-								<dd class="col-sm-6">-</dd>
-
-								<dt class="col-sm-6 text-sm-end">
-									Zip code:
-								</dt>
-								<dd class="col-sm-6">KW5 8NW</dd>
 							</dl>
 							<!-- End Row -->
 						</div>
@@ -529,13 +488,7 @@
 							</button>
 
 							<div class="ms-auto">
-								<button type="button"
-										class="btn btn-white me-2">
-									Save in drafts
-								</button>
-								<button id="addUserFinishBtn"
-										type="button"
-										class="btn btn-primary">
+								<button type="submit" class="btn btn-primary">
 									Add user
 								</button>
 							</div>
@@ -544,48 +497,50 @@
 					</div>
 				</div>
 				<!-- End Content Step Form -->
-				<!-- Message Body -->
-				<div id="successMessageContent"
-					 style="display: none">
-					<div class="text-center">
-						<img class="img-fluid mb-3"
-							 src="admin/svg/illustrations/oc-hi-five.svg"
-							 alt="Image Description"
-							 data-hs-theme-appearance="default"
-							 style="max-width: 15rem" />
-						<img class="img-fluid mb-3"
-							 src="admin/svg/illustrations-light/oc-hi-five.svg"
-							 alt="Image Description"
-							 data-hs-theme-appearance="dark"
-							 style="max-width: 15rem" />
-
-						<div class="mb-4">
-							<h2>Successful!</h2>
-							<p>
-								New
-								<span class="fw-semibold text-dark">Ella Lauda</span>
-								user has been successfully created.
-							</p>
-						</div>
-
-						<div class="d-flex justify-content-center">
-							<a class="btn btn-white me-3"
-							   href="users.html">
-								<i class="bi-chevron-left ms-1"></i>
-								Back to users
-							</a>
-							<a class="btn btn-primary"
-							   href="users-add-user.html">
-								<i class="bi-person-plus-fill me-1"></i>
-								Add new user
-							</a>
-						</div>
-					</div>
-				</div>
-				<!-- End Message Body -->
 			</div>
 		</div>
 		<!-- End Row -->
 	</form>
 	<!-- End Step Form -->
 </div>
+
+<script>
+	let boxCreateUser = document.querySelector("#create-user")
+	let inputFile = document.querySelector("#avatarUploader")
+	let avatarImg = document.querySelector("#avatarImg")
+	let avatarReview = document.querySelector("#avatarReview")
+	let resetImag = document.querySelector(".js-file-attach-reset-img")
+	if(boxCreateUser){
+		inputFile.addEventListener("change",e=>{
+			let file = e.target.files[0]
+			let reader = new FileReader();
+
+			reader.addEventListener("load", () => {
+				avatarReview.src = reader.result
+			}, false);
+
+			reader.readAsDataURL(file)
+		})
+		resetImag.addEventListener("click",()=>{
+			avatarReview.src = "front/images/users/default-user.png"
+		})
+		nameLabel.addEventListener("change",()=>{
+			nameLabelReview.textContent = nameLabel.value
+		})
+		emailLabel.addEventListener("change", () => {
+			emailLabelReview.textContent = emailLabel.value
+		})
+		phoneLabel.addEventListener("change", () => {
+			phoneLabelReview.textContent = phoneLabel.value
+		})
+
+		function changLevelReview(number){
+			text = levelLabel.querySelector(`option[value="${number}"]`)
+			levelLabelReview.textContent = text.textContent
+		}
+		changLevelReview(levelLabel.value)
+		levelLabel.addEventListener("change", () => {
+			changLevelReview(levelLabel.value)
+		})
+	}
+</script>

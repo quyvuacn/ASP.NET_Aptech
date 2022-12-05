@@ -16,7 +16,7 @@ namespace ShopASP.Models
         public int Status { get; set; }
 
 		public User? User { get; set; }
-		public ICollection<OrderDetail>? orderDetails { get; set; }
+		public ICollection<OrderDetail>? OrderDetails { get; set; }
 
 	}
 }

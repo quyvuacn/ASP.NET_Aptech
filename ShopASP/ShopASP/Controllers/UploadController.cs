@@ -15,7 +15,7 @@ namespace ShopASP.Controllers
         [HttpPost]
         public async Task<IActionResult> UploadImage(FileModel image)
         {
-            var ActionUpload = FileAction.Upload(image,"wwwroot/images/products");
+            var ActionUpload = FileAction.Upload(image,"wwwroot/front/images/products");
             if(ActionUpload.Completed) { 
                 string fileName = ActionUpload.Result;
                 TempData["Message"] = $"{fileName} upload thành công";

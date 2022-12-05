@@ -1713,6 +1713,26 @@
       "PackagePath": "staticwebassets\\front\\favicon.ico"
     },
     {
+      "Id": "D:\\Github\\ASP.NET_Aptech\\ShopASP\\ShopASP\\wwwroot\\front\\images\\users\\default-user.png",
+      "PackagePath": "staticwebassets\\front\\images\\users\\default-user.png"
+    },
+    {
+      "Id": "D:\\Github\\ASP.NET_Aptech\\ShopASP\\ShopASP\\wwwroot\\front\\images\\users\\userAvatar_20221205104558.jpg",
+      "PackagePath": "staticwebassets\\front\\images\\users\\userAvatar_20221205104558.jpg"
+    },
+    {
+      "Id": "D:\\Github\\ASP.NET_Aptech\\ShopASP\\ShopASP\\wwwroot\\front\\images\\users\\userAvatar_20221205110328.jpg",
+      "PackagePath": "staticwebassets\\front\\images\\users\\userAvatar_20221205110328.jpg"
+    },
+    {
+      "Id": "D:\\Github\\ASP.NET_Aptech\\ShopASP\\ShopASP\\wwwroot\\front\\images\\users\\userAvatar_2022120583800.jpg",
+      "PackagePath": "staticwebassets\\front\\images\\users\\userAvatar_2022120583800.jpg"
+    },
+    {
+      "Id": "D:\\Github\\ASP.NET_Aptech\\ShopASP\\ShopASP\\wwwroot\\front\\images\\users\\userAvatar_2022120594944.jpg",
+      "PackagePath": "staticwebassets\\front\\images\\users\\userAvatar_2022120594944.jpg"
+    },
+    {
       "Id": "D:\\Github\\ASP.NET_Aptech\\ShopASP\\ShopASP\\wwwroot\\front\\js\\site.js",
       "PackagePath": "staticwebassets\\front\\js\\site.js"
     },

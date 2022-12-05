@@ -16,8 +16,8 @@ namespace ShopASP.Features
 
         public static ActionInfo Upload(FileModel file,string uploadDirecotroy)
         {
-            try
-            {
+            //try
+            //{
                 if (!Directory.Exists(uploadDirecotroy))
                     Directory.CreateDirectory(uploadDirecotroy);
 
@@ -32,15 +32,15 @@ namespace ShopASP.Features
                     Completed = true,
                     Result = fileName
                 };
-            }
-            catch(Exception ex)
-            {
-                return new ActionInfo
-                {
-                    Completed = false,
-                    Result = ex.Message
-                };
-            }
+            //}
+            //catch(Exception ex)
+            //{
+            //    return new ActionInfo
+            //    {
+            //        Completed = false,
+            //        Result = ex.Message
+            //    };
+            //}
             
             
         }

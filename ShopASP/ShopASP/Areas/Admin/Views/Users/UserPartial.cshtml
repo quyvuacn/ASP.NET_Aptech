@@ -1,4 +1,12 @@
-﻿<tr>
+﻿@using ShopASP.Extensions
+@model ShopASP.Models.User
+@{
+	var level = new USER_LEVEL().ToDictionary().Where(user=>user.Value==Model.Level).First();
+	int orderCount = Model.Orders.Count();
+	string joined = Model.CreatedDate.GetValueOrDefault().ToString("dd/MM/yyyy");
+	var shopping = Model.Orders.Select(order => order.Subtotal).Sum();
+}
+<tr>
 	<td class="table-column-pe-0">
 		<div class="form-check">
 			<input type="checkbox"
@@ -13,38 +21,55 @@
 		   href="../user-profile.html">
 			<div class="avatar avatar-circle">
 				<img class="avatar-img"
-					 src="../admin/img/160x160/img10.jpg"
+					 src="front/images/users/@Model.Avatar"
 					 alt="Image Description" />
 			</div>
 			<div class="ms-3">
 				<span class="d-block h5 text-inherit mb-0">
-					Amanda Harvey
+					@Model.Name
 					<i class="bi-patch-check-fill text-primary"
 					   data-toggle="tooltip"
 					   data-bs-placement="top"
 					   title="Top endorsed"></i>
 				</span>
-				<span class="d-block fs-5 text-body">amanda@example.com</span>
+				<span class="d-block fs-5 text-body">@Model.Email</span>
 			</div>
 		</a>
 	</td>
-	<td>0326459773</td>
+	<td>@Model.Phone</td>
 	<td>
-		<span class="legend-indicator bg-success"></span>Active
+		@if (level.Value==0)
+		{
+			<span class="legend-indicator bg-warning"></span>
+			@level.Key
+		}
+		else
+		{
+			<span class="legend-indicator bg-success"></span>
+			@level.Key
+		}
 	</td>
-	<td>20</td>
+	<td>@orderCount</td>
 	<td>
-		$100
+		$@shopping
 	</td>
-	<td>20/10/2022</td>
+	<td>@joined</td>
 	<td>
-		<a class="btn btn-sm btn-white text-primary">
-			<i class="bi-pencil-fill me-1"></i>
-			Edit
-		</a>
-		<a class="btn btn-sm btn-white text-danger">
-			<i class="bi-pencil-fill me-1"></i>
-			Delete
-		</a>
+		<form asp-action="Delete" method="post">
+			<a asp-action="Edit" asp-route-id="@Model.Id"
+				class="btn btn-sm btn-white text-primary">
+				<i class="bi-pencil-fill me-1"></i>
+				Edit
+			</a>
+			<input type="hidden" asp-for="Id"/>
+			<button 
+				type="button"
+				onclick="confirm('Confirm this action?') == true ? this.form.submit() : ''"
+					class="btn btn-sm btn-white text-danger">
+				<i class="bi-pencil-fill me-1"></i>
+				Delete
+			</button>
+		</form>
+		
 	</td>
 </tr>

@@ -5,7 +5,11 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
+using ShopASP.Areas.Admin.Models;
 using ShopASP.Data;
+using ShopASP.Extensions;
+using ShopASP.Features;
+using ShopASP.Features.Models;
 using ShopASP.Models;
 
 namespace ShopASP.Areas.Admin.Controllers
@@ -23,9 +27,16 @@ namespace ShopASP.Areas.Admin.Controllers
         // GET: Admin/Users
         public async Task<IActionResult> Index()
         {
-              return _context.User != null ? 
-                          View(await _context.User.ToListAsync()) :
-                          Problem("Entity set 'ShopASPContext.User'  is null.");
+            if (_context.User==null)
+            {
+                return Problem("Entity set 'ShopASPContext.User'  is null.");
+			}
+            var userContext = _context.User
+                .Include(u => u.Orders)
+                    .ThenInclude(o => o.OrderDetails);
+            
+			var users = await userContext.ToListAsync();
+            return View(users);
         }
 
         // GET: Admin/Users/Details/5
@@ -57,16 +68,49 @@ namespace ShopASP.Areas.Admin.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Name,Email,Password,Avatar,Level,CreatedDate,UpdatedDate")] User user)
+        public async Task<IActionResult> Create(UserViewModel userViewModel)
         {
-            if (ModelState.IsValid)
+			
+            User user = userViewModel.User;
+            UserAddress userAddress = userViewModel.UserAddress;
+            IFormFile file = userViewModel.userAvatar;
+            if (user.Password==userViewModel.rePassword)
             {
-                _context.Add(user);
+                user.Password = BCrypt.Net.BCrypt.HashPassword(user.Password);
+
+                if (file!=null)
+                {
+                    var image = new FileModel {
+                        FileData = file,
+                        FileName = "userAvatar"
+                    };
+					var ActionUpload = FileAction.Upload(image, "wwwroot/front/images/users");
+
+					if (ActionUpload.Completed)
+                    {
+                        user.Avatar = ActionUpload.Result;
+                    }
+                    else
+                    {
+						TempData["notification"] = new NOTIFICATION().ERROR;
+                        return View(userViewModel);
+					}
+                }
+				_context.Add(user);
+				await _context.SaveChangesAsync();
+
+                userAddress.UserId = user.Id;
+                _context.Add(userAddress);
                 await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+                TempData["notification"] = new NOTIFICATION().SUCCESS;
+			}
+            else
+            {
+                TempData["notification"] = new NOTIFICATION().ERROR;
             }
-            return View(user);
-        }
+			return RedirectToAction("Index");
+
+		}
 
         // GET: Admin/Users/Edit/5
         public async Task<IActionResult> Edit(int? id)
@@ -75,13 +119,25 @@ namespace ShopASP.Areas.Admin.Controllers
             {
                 return NotFound();
             }
+            var userContext = _context.User
+                .Include(user => user.UserAddress);
 
-            var user = await _context.User.FindAsync(id);
+			var user = await userContext.FirstOrDefaultAsync(user => user.Id == id);
+			var userViewModel = new UserViewModel
+			{
+				User = user,
+                UserAddress = user.UserAddress.First()!
+			};
+
+			
+
+			
+            
             if (user == null)
             {
                 return NotFound();
             }
-            return View(user);
+            return View(userViewModel);
         }
 
         // POST: Admin/Users/Edit/5
@@ -118,25 +174,6 @@ namespace ShopASP.Areas.Admin.Controllers
             }
             return View(user);
         }
-
-        // GET: Admin/Users/Delete/5
-        public async Task<IActionResult> Delete(int? id)
-        {
-            if (id == null || _context.User == null)
-            {
-                return NotFound();
-            }
-
-            var user = await _context.User
-                .FirstOrDefaultAsync(m => m.Id == id);
-            if (user == null)
-            {
-                return NotFound();
-            }
-
-            return View(user);
-        }
-
         // POST: Admin/Users/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]

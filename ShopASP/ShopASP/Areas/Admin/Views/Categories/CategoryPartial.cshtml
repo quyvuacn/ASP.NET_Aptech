@@ -22,9 +22,10 @@
 				Edit
 			</a>
 			<input type="hidden" asp-for="Id" />
-			<button 
-				class="btn btn-sm btn-white text-danger"
-					onclick="confirm('Confirm deletion of this record?') ? this.form.submit() : ''">
+			<button onclick="confirm('Confirm deletion of this record?') ? this.form.submit() : ''"
+					class="btn btn-sm btn-white text-danger"
+					type="button"
+			>
 				<i class="bi-pencil-fill me-1"></i>
 				Delete
 			</button>
