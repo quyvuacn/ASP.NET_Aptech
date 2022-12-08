@@ -18,43 +18,34 @@ namespace ShopASP.Areas.Admin.Controllers
     public class UsersController : Controller
     {
         private readonly ShopASPContext _context;
-
         public UsersController(ShopASPContext context)
         {
             _context = context;
         }
 
         // GET: Admin/Users
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(string search)
         {
             if (_context.User==null)
             {
                 return Problem("Entity set 'ShopASPContext.User'  is null.");
 			}
-            var userContext = _context.User
+            var userContext =_context.User
                 .Include(u => u.Orders)
                     .ThenInclude(o => o.OrderDetails);
-            
-			var users = await userContext.ToListAsync();
-            return View(users);
-        }
 
-        // GET: Admin/Users/Details/5
-        public async Task<IActionResult> Details(int? id)
-        {
-            if (id == null || _context.User == null)
+		    var users = await userContext
+		    .Where(user =>
+			    user.Name!.Contains(search??"") ||
+			    user.Email!.Contains(search??"")
+		    )
+		    .ToListAsync();
+
+            UserViewModel userViewModel = new UserViewModel
             {
-                return NotFound();
-            }
-
-            var user = await _context.User
-                .FirstOrDefaultAsync(m => m.Id == id);
-            if (user == null)
-            {
-                return NotFound();
-            }
-
-            return View(user);
+                Users = users,
+            };
+            return View(userViewModel);
         }
 
         // GET: Admin/Users/Create
@@ -126,13 +117,9 @@ namespace ShopASP.Areas.Admin.Controllers
 			var userViewModel = new UserViewModel
 			{
 				User = user,
-                UserAddress = user.UserAddress.First()!
+                UserAddress = user.UserAddress.Count()>0 ? user.UserAddress.First() : null
 			};
 
-			
-
-			
-            
             if (user == null)
             {
                 return NotFound();
@@ -145,34 +132,43 @@ namespace ShopASP.Areas.Admin.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Name,Email,Password,Avatar,Level,CreatedDate,UpdatedDate")] User user)
+        public async Task<IActionResult> Edit(int id,UserViewModel userViewModel)
         {
-            if (id != user.Id)
+            User User = userViewModel.User;
+            UserAddress UserAddress = userViewModel.UserAddress;
+            try
             {
-                return NotFound();
-            }
+				User UserContext = await _context.User.FindAsync(id);
 
-            if (ModelState.IsValid)
-            {
-                try
+                if (UserContext == null)
                 {
-                    _context.Update(user);
-                    await _context.SaveChangesAsync();
+                    return NotFound();
                 }
-                catch (DbUpdateConcurrencyException)
-                {
-                    if (!UserExists(user.Id))
-                    {
-                        return NotFound();
-                    }
-                    else
-                    {
-                        throw;
-                    }
-                }
-                return RedirectToAction(nameof(Index));
+
+				UserContext.Name = User.Name;
+				UserContext.Email = User.Email;
+				UserContext.Phone = User.Phone;
+                UserContext.Level = User.Level;
+
+                Console.WriteLine(UserAddress.Id);
+
+                _context.User.Update(UserContext);
+                _context.UserAddresses.Update(UserAddress);
+
+				await _context.SaveChangesAsync();
             }
-            return View(user);
+            catch (DbUpdateConcurrencyException)
+            {
+                if (!UserExists(User.Id))
+                {
+                    return NotFound();
+                }
+                else
+                {
+                    throw;
+                }
+            }
+            return RedirectToAction(nameof(Index));
         }
         // POST: Admin/Users/Delete/5
         [HttpPost, ActionName("Delete")]

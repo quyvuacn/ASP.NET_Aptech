@@ -4,315 +4,709 @@
     ViewData["Title"] = "Details";
 }
 
-<div id="top" class="sa-app__body">
-	<div class="mx-sm-2 px-2 px-sm-3 px-xxl-4 pb-6">
-		<div class="container container--max--xl">
-			<div class="py-5">
-				<div class="row g-4 align-items-center">
-					<div class="col">
-						<nav class="mb-2"
-							 aria-label="breadcrumb">
-							<ol class="breadcrumb breadcrumb-sa-simple">
-								<li class="breadcrumb-item">
-									<a href="index.html">Dashboard</a>
-								</li>
-								<li class="breadcrumb-item">
-									<a href="app-customers-list.html">Customers</a>
-								</li>
-								<li class="breadcrumb-item active"
-									aria-current="page">
-									Jessica Moore
-								</li>
-							</ol>
-						</nav>
-						<h1 class="h3 m-0">Jessica Moore</h1>
-					</div>
-					<div class="col-auto d-flex">
-						<a 
-						   class="btn btn-secondary me-3">Delete</a><a  class="btn btn-primary">Edit</a>
-					</div>
-				</div>
+<div class="content container-fluid">
+	<!-- Page Header -->
+	<div class="page-header">
+		<div class="row align-items-center">
+			<div class="col-sm mb-2 mb-sm-0">
+				<nav aria-label="breadcrumb">
+					<ol class="breadcrumb breadcrumb-no-gutter">
+						<li class="breadcrumb-item">
+							<a class="breadcrumb-link"
+							   href="ecommerce-customers.html">Users</a>
+						</li>
+						<li class="breadcrumb-item active"
+							aria-current="page">
+							Users details
+						</li>
+					</ol>
+				</nav>
+
+				<h1 class="page-header-title">@Model.Name</h1>
 			</div>
-			<div class="sa-entity-layout"
-				 data-sa-container-query='{"920":"sa-entity-layout--size--md"}'>
-				<div class="sa-entity-layout__body">
-					<div class="sa-entity-layout__sidebar">
-						<div class="card">
-							<div class="card-body d-flex flex-column align-items-center">
-								<div class="pt-3">
-									<div class="sa-symbol sa-symbol--shape--circle"
-										 style="
-															--sa-symbol--size: 6rem;
-														">
-										<img src="~/admin/images/customers/customer-1-96x96.jpg"
-											 width="96"
-											 height="96"
-											 alt="" />
-									</div>
-								</div>
-								<div class="text-center mt-4">
-									<div class="fs-exact-16 fw-medium">
-										Jessica Moore
-									</div>
-									<div class="fs-exact-13 text-muted">
-										<div class="mt-1">
-											<a href="">jessica-moore@example.com</a>
-										</div>
-										<div class="mt-1">
-											+38 (094) 730-24-25
-										</div>
-									</div>
-								</div>
-								<div class="sa-divider my-5"></div>
-								<div class="w-100">
-									<dl class="list-unstyled m-0">
-										<dt class="fs-exact-14 fw-medium">
-											Last Order
-										</dt>
-										<dd class="fs-exact-13 text-muted mb-0 mt-1">
-											7 days ago –
-											<a href="app-order.html">#80294</a>
-										</dd>
-									</dl>
-									<dl class="list-unstyled m-0 mt-4">
-										<dt class="fs-exact-14 fw-medium">
-											Average Order Value
-										</dt>
-										<dd class="fs-exact-13 text-muted mb-0 mt-1">
-											$574.00
-										</dd>
-									</dl>
-									<dl class="list-unstyled m-0 mt-4">
-										<dt class="fs-exact-14 fw-medium">
-											Registered
-										</dt>
-										<dd class="fs-exact-13 text-muted mb-0 mt-1">
-											2 months ago
-										</dd>
-									</dl>
-									<dl class="list-unstyled m-0 mt-4">
-										<dt class="fs-exact-14 fw-medium">
-											Email Marketing
-										</dt>
-										<dd class="fs-exact-13 text-muted mb-0 mt-1">
-											Subscribed
-										</dd>
-									</dl>
-								</div>
+			<!-- End Col -->
+		</div>
+		<!-- End Row -->
+	</div>
+	<!-- End Page Header -->
+
+	<div class="row">
+		<div class="col">
+			<!-- Card -->
+			<div class="card mb-3 mb-lg-5">
+				<!-- Body -->
+				<div class="card-body">
+					<!-- Media -->
+					<div class="d-flex align-items-center mb-5">
+						<div class="flex-shrink-0">
+							<div class="avatar avatar-lg avatar-circle">
+								<img class="avatar-img"
+									 src="front/images/users/@Model.Avatar"
+									 alt="Image Description" />
 							</div>
+						</div>
+
+						<div class="flex-grow-1 mx-3">
+							<div class="d-flex mb-1">
+								<h3 class="mb-0 me-3">
+									@Model.Name
+								</h3>
+							</div>
+
+							<span class="fs-6">Customer for 3 months</span>
 						</div>
 					</div>
-					<div class="sa-entity-layout__main">
-						<div class="sa-card-area">
-							<textarea class="sa-card-area__area"
-									  rows="2"
-									  placeholder="Notes about customer"></textarea>
-							<div class="sa-card-area__card">
-								<svg xmlns="http://www.w3.org/2000/svg"
-									 width="1em"
-									 height="1em"
-									 viewBox="0 0 24 24"
-									 fill="none"
-									 stroke="currentColor"
-									 stroke-width="2"
-									 stroke-linecap="round"
-									 stroke-linejoin="round"
-									 class="feather feather-edit">
-									<path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path>
-									<path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path>
-								</svg>
-							</div>
-						</div>
-						<div class="card mt-5">
-							<div class="card-body px-5 py-4 d-flex align-items-center justify-content-between">
-								<h2 class="mb-0 fs-exact-18 me-4">
-									Orders
-								</h2>
-								<div class="text-muted fs-exact-14 text-end">
-									Total spent $34,980.34 on 7
-									orders
-								</div>
-							</div>
-							<div class="table-responsive">
-								<table class="sa-table text-nowrap">
-									<tbody>
-										<tr>
-											<td>
-												<a href="app-order.html">#80294</a>
-											</td>
-											<td>
-												Today at 6:10 pm
-											</td>
-											<td>Pending</td>
-											<td>4 items</td>
-											<td>$320.00</td>
-										</tr>
-										<tr>
-											<td>
-												<a href="app-order.html">#63736</a>
-											</td>
-											<td>
-												May 15, 2019
-											</td>
-											<td>Completed</td>
-											<td>7 items</td>
-											<td>$2,574.31</td>
-										</tr>
-										<tr>
-											<td>
-												<a href="app-order.html">#63501</a>
-											</td>
-											<td>
-												January 7, 2019
-											</td>
-											<td>Completed</td>
-											<td>1 items</td>
-											<td>$34.00</td>
-										</tr>
-										<tr>
-											<td>
-												<a href="app-order.html">#40278</a>
-											</td>
-											<td>
-												October 19, 2018
-											</td>
-											<td>Completed</td>
-											<td>2 items</td>
-											<td>$704.00</td>
-										</tr>
-									</tbody>
-								</table>
-							</div>
-							<div class="sa-divider"></div>
-							<div class="px-5 py-4 text-center">
-								<a href="app-orders-list.html">View all 7 orders</a>
-							</div>
-						</div>
-						<div class="card mt-5">
-							<div class="card-body px-5 py-4 d-flex align-items-center justify-content-between">
-								<h2 class="mb-0 fs-exact-18 me-4">
-									Addresses
-								</h2>
-								<div class="text-muted fs-exact-14">
-									<a >New address</a>
-								</div>
-							</div>
-							<div class="sa-divider"></div>
-							<div class="px-5 py-3 my-2 d-flex align-items-center justify-content-between">
-								<div>
-									<div>Jessica Moore</div>
-									<div class="text-muted fs-exact-14 mt-1">
-										Random Federation
-										115302, Moscow ul.
-										Varshavskaya, 15-2-178
-									</div>
-								</div>
-								<div>
-									<div class="dropdown">
-										<button class="btn btn-sa-muted btn-sm"
-												type="button"
-												id="address-context-menu-0"
-												data-bs-toggle="dropdown"
-												aria-expanded="false"
-												aria-label="More">
-											<svg xmlns="http://www.w3.org/2000/svg"
-												 width="3"
-												 height="13"
-												 fill="currentColor">
-												<path d="M1.5,8C0.7,8,0,7.3,0,6.5S0.7,5,1.5,5S3,5.7,3,6.5S2.3,8,1.5,8z M1.5,3C0.7,3,0,2.3,0,1.5S0.7,0,1.5,0 S3,0.7,3,1.5S2.3,3,1.5,3z M1.5,10C2.3,10,3,10.7,3,11.5S2.3,13,1.5,13S0,12.3,0,11.5S0.7,10,1.5,10z"></path>
-											</svg>
-										</button>
-										<ul class="dropdown-menu dropdown-menu-end"
-											aria-labelledby="address-context-menu-0">
-											<li>
-												<a>Edit</a>
-											</li>
-											<li>
-												<a class="dropdown-item"
-												   >Duplicate</a>
-											</li>
-											<li>
-												<a class="dropdown-item"
-												   >Add tag</a>
-											</li>
-											<li>
-												<a class="dropdown-item"
-												   >
-													Remove
-													tag
-												</a>
-											</li>
-											<li>
-												<hr class="dropdown-divider" />
-											</li>
-											<li>
-												<a class="dropdown-item text-danger"
-												   >Delete</a>
-											</li>
-										</ul>
-									</div>
-								</div>
-							</div>
-							<div class="sa-divider"></div>
-							<div class="px-5 py-3 my-2 d-flex align-items-center justify-content-between">
-								<div>
-									<div>Neptune Saturnov</div>
-									<div class="text-muted fs-exact-14 mt-1">
-										Earth 4b4f53, MarsGrad
-										Sun Orbit,
-										43.3241-85.239
-									</div>
-								</div>
-								<div>
-									<div class="dropdown">
-										<button class="btn btn-sa-muted btn-sm"
-												type="button"
-												id="address-context-menu-1"
-												data-bs-toggle="dropdown"
-												aria-expanded="false"
-												aria-label="More">
-											<svg xmlns="http://www.w3.org/2000/svg"
-												 width="3"
-												 height="13"
-												 fill="currentColor">
-												<path d="M1.5,8C0.7,8,0,7.3,0,6.5S0.7,5,1.5,5S3,5.7,3,6.5S2.3,8,1.5,8z M1.5,3C0.7,3,0,2.3,0,1.5S0.7,0,1.5,0 S3,0.7,3,1.5S2.3,3,1.5,3z M1.5,10C2.3,10,3,10.7,3,11.5S2.3,13,1.5,13S0,12.3,0,11.5S0.7,10,1.5,10z"></path>
-											</svg>
-										</button>
-										<ul class="dropdown-menu dropdown-menu-end"
-											aria-labelledby="address-context-menu-1">
-											<li>
-												<a class="dropdown-item">Edit</a>
-											</li>
-											<li>
-												<a class="dropdown-item"
-												   >Duplicate</a>
-											</li>
-											<li>
-												<a class="dropdown-item"
-												   >Add tag</a>
-											</li>
-											<li>
-												<a class="dropdown-item"
-												   >
-													Remove
-													tag
-												</a>
-											</li>
-											<li>
-												<hr class="dropdown-divider" />
-											</li>
-											<li>
-												<a class="dropdown-item text-danger"
-												   >Delete</a>
-											</li>
-										</ul>
-									</div>
-								</div>
-							</div>
-						</div>
+					<!-- End Media -->
+
+					<label class="form-label">Customer note</label>
+
+					<!-- Quill -->
+					<div class="quill-custom">
+						<div class="js-quill"
+							 style="height: 15rem"
+							 data-hs-quill-options='{
+                     "placeholder": "Type your description...",
+                      "modules": {
+                        "toolbar": [
+                          ["bold", "italic", "underline", "strike", "link", "image", "blockquote", "code", {"list": "bullet"}]
+                        ]
+                      }
+                     }'></div>
+					</div>
+					<!-- End Quill -->
+				</div>
+				<!-- Body -->
+				<!-- Footer -->
+				<div class="card-footer">
+					<div class="d-flex justify-content-end gap-3">
+						<button type="submit" class="btn btn-white">
+							Discard
+						</button>
+						<button type="submit"
+								class="btn btn-primary">
+							Save changes
+						</button>
 					</div>
 				</div>
+				<!-- End Footer -->
+			</div>
+			<!-- End Card -->
+			<!-- Card -->
+			<div class="card mb-3 mb-lg-5">
+				<!-- Header -->
+				<div class="card-header card-header-content-sm-between">
+					<div class="d-grid gap-2 mb-2 mb-sm-0">
+						<h4 class="card-header-title">
+							Orders placed
+						</h4>
+
+						<!-- Datatable Info -->
+						<div id="datatableCounterInfo"
+							 style="display: none">
+							<div class="d-flex align-items-center">
+								<span class="fs-5 me-3">
+									<span id="datatableCounter">0</span>
+									Selected
+								</span>
+								<a class="btn btn-outline-danger btn-sm"
+								   href="javascript:;">
+									<i class="bi-trash"></i> Delete
+								</a>
+							</div>
+						</div>
+						<!-- End Datatable Info -->
+					</div>
+
+					<!-- Nav Scroller -->
+					<div class="js-nav-scroller hs-nav-scroller-horizontal">
+						<span class="hs-nav-scroller-arrow-prev"
+							  style="display: none">
+							<a class="hs-nav-scroller-arrow-link"
+							   href="javascript:;">
+								<i class="bi-chevron-left"></i>
+							</a>
+						</span>
+
+						<span class="hs-nav-scroller-arrow-next"
+							  style="display: none">
+							<a class="hs-nav-scroller-arrow-link"
+							   href="javascript:;">
+								<i class="bi-chevron-right"></i>
+							</a>
+						</span>
+
+						<!-- Nav -->
+						<ul class="nav nav-segment nav-fill">
+							<li class="nav-item">
+								<a class="nav-link active" href="#">All orders</a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link disabled"
+								   href="#"
+								   tabindex="-1"
+								   aria-disabled="true">Open</a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link disabled"
+								   href="#"
+								   tabindex="-1"
+								   aria-disabled="true">Unfulfilled</a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link disabled"
+								   href="#"
+								   tabindex="-1"
+								   aria-disabled="true">Unpaid</a>
+							</li>
+						</ul>
+						<!-- End Nav -->
+					</div>
+					<!-- End Nav Scroller -->
+				</div>
+				<!-- End Header -->
+				<!-- Body -->
+				<div class="card-body">
+					<!-- Input Group -->
+					<div class="input-group input-group-merge">
+						<div class="input-group-prepend input-group-text">
+							<i class="bi-search"></i>
+						</div>
+
+						<input id="datatableSearch"
+							   type="search"
+							   class="form-control"
+							   placeholder="Search orders"
+							   aria-label="Search orders" />
+					</div>
+					<!-- End Input Group -->
+				</div>
+				<!-- End Body -->
+				<!-- Table -->
+				<div class="table-responsive datatable-custom">
+					<table id="datatable"
+						   class="table table-borderless table-thead-bordered table-nowrap table-align-middle card-table"
+						   data-hs-datatables-options='{
+                       "columnDefs": [{
+                          "targets": [0, 5],
+                          "orderable": false
+                        }],
+                       "order": [],
+                       "info": {
+                         "totalQty": "#datatableWithPaginationInfoTotalQty"
+                       },
+                       "search": "#datatableSearch",
+                       "entries": "#datatableEntries",
+                       "pageLength": 12,
+                       "isResponsive": false,
+                       "isShowPaging": false,
+                       "pagination": "datatablePagination"
+                     }'>
+						<thead class="thead-light">
+							<tr>
+								<th scope="col"
+									class="table-column-pe-0">
+									<div class="form-check">
+										<input id="datatableCheckAll"
+											   type="checkbox"
+											   class="form-check-input" />
+										<label class="form-check-label"
+											   for="datatableCheckAll"></label>
+									</div>
+								</th>
+								<th class="table-column-ps-0">
+									Order
+								</th>
+								<th>Date</th>
+								<th>Payment status</th>
+								<th>Total</th>
+								<th>Invoice</th>
+							</tr>
+						</thead>
+
+						<tbody>
+							<tr>
+								<td class="table-column-pe-0">
+									<div class="form-check">
+										<input type="checkbox"
+											   class="form-check-input"
+											   id="ordersCheck1" />
+										<label class="form-check-label"
+											   for="ordersCheck1"></label>
+									</div>
+								</td>
+								<td class="table-column-ps-0">
+									<a href="ecommerce-order-details.html">#35463</a>
+								</td>
+								<td>Aug 17, 2020</td>
+								<td>
+									<span class="badge bg-soft-success text-success">
+										<span class="legend-indicator bg-success"></span>Paid
+									</span>
+								</td>
+								<td>$256.39</td>
+								<td>
+									<a class="btn btn-white btn-sm"
+									   href="javascript:;"
+									   data-bs-toggle="modal"
+									   data-bs-target="#accountInvoiceReceiptModal">
+										<i class="bi-receipt me-1"></i>
+										Invoice
+									</a>
+								</td>
+							</tr>
+
+							<tr>
+								<td class="table-column-pe-0">
+									<div class="form-check">
+										<input type="checkbox"
+											   class="form-check-input"
+											   id="ordersCheck2" />
+										<label class="form-check-label"
+											   for="ordersCheck2"></label>
+									</div>
+								</td>
+								<td class="table-column-ps-0">
+									<a href="ecommerce-order-details.html">#23513</a>
+								</td>
+								<td>Aug 17, 2020</td>
+								<td>
+									<span class="badge bg-soft-success text-success">
+										<span class="legend-indicator bg-success"></span>Paid
+									</span>
+								</td>
+								<td>$2,125.00</td>
+								<td>
+									<a class="btn btn-white btn-sm"
+									   href="javascript:;"
+									   data-bs-toggle="modal"
+									   data-bs-target="#accountInvoiceReceiptModal">
+										<i class="bi-receipt me-1"></i>
+										Invoice
+									</a>
+								</td>
+							</tr>
+
+							<tr>
+								<td class="table-column-pe-0">
+									<div class="form-check">
+										<input type="checkbox"
+											   class="form-check-input"
+											   id="ordersCheck3" />
+										<label class="form-check-label"
+											   for="ordersCheck3"></label>
+									</div>
+								</td>
+								<td class="table-column-ps-0">
+									<a href="ecommerce-order-details.html">#62311</a>
+								</td>
+								<td>Aug 03, 2020</td>
+								<td>
+									<span class="badge bg-soft-success text-success">
+										<span class="legend-indicator bg-success"></span>Paid
+									</span>
+								</td>
+								<td>$532.99</td>
+								<td>
+									<a class="btn btn-white btn-sm"
+									   href="javascript:;"
+									   data-bs-toggle="modal"
+									   data-bs-target="#accountInvoiceReceiptModal">
+										<i class="bi-receipt me-1"></i>
+										Invoice
+									</a>
+								</td>
+							</tr>
+
+							<tr>
+								<td class="table-column-pe-0">
+									<div class="form-check">
+										<input type="checkbox"
+											   class="form-check-input"
+											   id="ordersCheck4" />
+										<label class="form-check-label"
+											   for="ordersCheck4"></label>
+									</div>
+								</td>
+								<td class="table-column-ps-0">
+									<a href="ecommerce-order-details.html">#12453</a>
+								</td>
+								<td>July 29, 2020</td>
+								<td>
+									<span class="badge bg-soft-warning text-warning">
+										<span class="legend-indicator bg-warning"></span>Pending
+									</span>
+								</td>
+								<td>$1,035.02</td>
+								<td>
+									<a class="btn btn-white btn-sm"
+									   href="javascript:;"
+									   data-bs-toggle="modal"
+									   data-bs-target="#accountInvoiceReceiptModal">
+										<i class="bi-receipt me-1"></i>
+										Invoice
+									</a>
+								</td>
+							</tr>
+
+							<tr>
+								<td class="table-column-pe-0">
+									<div class="form-check">
+										<input type="checkbox"
+											   class="form-check-input"
+											   id="ordersCheck5" />
+										<label class="form-check-label"
+											   for="ordersCheck5"></label>
+									</div>
+								</td>
+								<td class="table-column-ps-0">
+									<a href="ecommerce-order-details.html">#84223</a>
+								</td>
+								<td>July 11, 2020</td>
+								<td>
+									<span class="badge bg-soft-success text-success">
+										<span class="legend-indicator bg-success"></span>Paid
+									</span>
+								</td>
+								<td>$68.53</td>
+								<td>
+									<a class="btn btn-white btn-sm"
+									   href="javascript:;"
+									   data-bs-toggle="modal"
+									   data-bs-target="#accountInvoiceReceiptModal">
+										<i class="bi-receipt me-1"></i>
+										Invoice
+									</a>
+								</td>
+							</tr>
+
+							<tr>
+								<td class="table-column-pe-0">
+									<div class="form-check">
+										<input type="checkbox"
+											   class="form-check-input"
+											   id="ordersCheck6" />
+										<label class="form-check-label"
+											   for="ordersCheck6"></label>
+									</div>
+								</td>
+								<td class="table-column-ps-0">
+									<a href="ecommerce-order-details.html">#46542</a>
+								</td>
+								<td>July 04, 2020</td>
+								<td>
+									<span class="badge bg-soft-success text-success">
+										<span class="legend-indicator bg-success"></span>Paid
+									</span>
+								</td>
+								<td>$100.00</td>
+								<td>
+									<a class="btn btn-white btn-sm"
+									   href="javascript:;"
+									   data-bs-toggle="modal"
+									   data-bs-target="#accountInvoiceReceiptModal">
+										<i class="bi-receipt me-1"></i>
+										Invoice
+									</a>
+								</td>
+							</tr>
+
+							<tr>
+								<td class="table-column-pe-0">
+									<div class="form-check">
+										<input type="checkbox"
+											   class="form-check-input"
+											   id="ordersCheck7" />
+										<label class="form-check-label"
+											   for="ordersCheck7"></label>
+									</div>
+								</td>
+								<td class="table-column-ps-0">
+									<a class="text-danger"
+									   href="ecommerce-order-details.html">#35378</a>
+									<i class="tio-warning text-warning"></i>
+								</td>
+								<td>June 27, 2020</td>
+								<td>
+									<span class="badge bg-soft-warning text-warning">
+										<span class="legend-indicator bg-warning"></span>Pending
+									</span>
+								</td>
+								<td class="text-danger">$89.46</td>
+								<td>
+									<a class="btn btn-white btn-sm"
+									   href="javascript:;"
+									   data-bs-toggle="modal"
+									   data-bs-target="#accountInvoiceReceiptModal">
+										<i class="bi-receipt me-1"></i>
+										Invoice
+									</a>
+								</td>
+							</tr>
+
+							<tr>
+								<td class="table-column-pe-0">
+									<div class="form-check">
+										<input type="checkbox"
+											   class="form-check-input"
+											   id="ordersCheck8" />
+										<label class="form-check-label"
+											   for="ordersCheck8"></label>
+									</div>
+								</td>
+								<td class="table-column-ps-0">
+									<a class="text-danger"
+									   href="ecommerce-order-details.html">#24562</a>
+									<i class="tio-warning text-warning"></i>
+								</td>
+								<td>June 15, 2020</td>
+								<td>
+									<span class="badge bg-soft-warning text-warning">
+										<span class="legend-indicator bg-warning"></span>Pending
+									</span>
+								</td>
+								<td class="text-danger">
+									$3,535.46
+								</td>
+								<td>
+									<a class="btn btn-white btn-sm"
+									   href="javascript:;"
+									   data-bs-toggle="modal"
+									   data-bs-target="#accountInvoiceReceiptModal">
+										<i class="bi-receipt me-1"></i>
+										Invoice
+									</a>
+								</td>
+							</tr>
+
+							<tr>
+								<td class="table-column-pe-0">
+									<div class="form-check">
+										<input type="checkbox"
+											   class="form-check-input"
+											   id="ordersCheck9" />
+										<label class="form-check-label"
+											   for="ordersCheck9"></label>
+									</div>
+								</td>
+								<td class="table-column-ps-0">
+									<a href="ecommerce-order-details.html">#78531</a>
+								</td>
+								<td>June 12, 2020</td>
+								<td>
+									<span class="badge bg-soft-success text-success">
+										<span class="legend-indicator bg-success"></span>Paid
+									</span>
+								</td>
+								<td>$23.89</td>
+								<td>
+									<a class="btn btn-white btn-sm"
+									   href="javascript:;"
+									   data-bs-toggle="modal"
+									   data-bs-target="#accountInvoiceReceiptModal">
+										<i class="bi-receipt me-1"></i>
+										Invoice
+									</a>
+								</td>
+							</tr>
+
+							<tr>
+								<td class="table-column-pe-0">
+									<div class="form-check">
+										<input type="checkbox"
+											   class="form-check-input"
+											   id="ordersCheck10" />
+										<label class="form-check-label"
+											   for="ordersCheck10"></label>
+									</div>
+								</td>
+								<td class="table-column-ps-0">
+									<a href="ecommerce-order-details.html">#34634</a>
+								</td>
+								<td>June 02, 2020</td>
+								<td>
+									<span class="badge bg-soft-success text-success">
+										<span class="legend-indicator bg-success"></span>Paid
+									</span>
+								</td>
+								<td>$77.00</td>
+								<td>
+									<a class="btn btn-white btn-sm"
+									   href="javascript:;"
+									   data-bs-toggle="modal"
+									   data-bs-target="#accountInvoiceReceiptModal">
+										<i class="bi-receipt me-1"></i>
+										Invoice
+									</a>
+								</td>
+							</tr>
+
+							<tr>
+								<td class="table-column-pe-0">
+									<div class="form-check">
+										<input type="checkbox"
+											   class="form-check-input"
+											   id="ordersCheck11" />
+										<label class="form-check-label"
+											   for="ordersCheck11"></label>
+									</div>
+								</td>
+								<td class="table-column-ps-0">
+									<a class="text-danger"
+									   href="ecommerce-order-details.html">#93817</a>
+									<i class="tio-warning text-warning"></i>
+								</td>
+								<td>May 30, 2020</td>
+								<td>
+									<span class="badge bg-soft-warning text-warning">
+										<span class="legend-indicator bg-warning"></span>Pending
+									</span>
+								</td>
+								<td class="text-danger">$77.00</td>
+								<td>
+									<a class="btn btn-white btn-sm"
+									   href="javascript:;"
+									   data-bs-toggle="modal"
+									   data-bs-target="#accountInvoiceReceiptModal">
+										<i class="bi-receipt me-1"></i>
+										Invoice
+									</a>
+								</td>
+							</tr>
+
+							<tr>
+								<td class="table-column-pe-0">
+									<div class="form-check">
+										<input type="checkbox"
+											   class="form-check-input"
+											   id="ordersCheck12" />
+										<label class="form-check-label"
+											   for="ordersCheck12"></label>
+									</div>
+								</td>
+								<td class="table-column-ps-0">
+									<a href="ecommerce-order-details.html">#43113</a>
+								</td>
+								<td>May 25, 2020</td>
+								<td>
+									<span class="badge bg-soft-success text-success">
+										<span class="legend-indicator bg-success"></span>Paid
+									</span>
+								</td>
+								<td>$1,421.47</td>
+								<td>
+									<a class="btn btn-white btn-sm"
+									   href="javascript:;"
+									   data-bs-toggle="modal"
+									   data-bs-target="#accountInvoiceReceiptModal">
+										<i class="bi-receipt me-1"></i>
+										Invoice
+									</a>
+								</td>
+							</tr>
+
+							<tr>
+								<td class="table-column-pe-0">
+									<div class="form-check">
+										<input type="checkbox"
+											   class="form-check-input"
+											   id="ordersCheck13" />
+										<label class="form-check-label"
+											   for="ordersCheck13"></label>
+									</div>
+								</td>
+								<td class="table-column-ps-0">
+									<a href="ecommerce-order-details.html">#12412</a>
+								</td>
+								<td>May 16, 2020</td>
+								<td>
+									<span class="badge bg-soft-success text-success">
+										<span class="legend-indicator bg-success"></span>Paid
+									</span>
+								</td>
+								<td>$45.00</td>
+								<td>
+									<a class="btn btn-white btn-sm"
+									   href="javascript:;"
+									   data-bs-toggle="modal"
+									   data-bs-target="#accountInvoiceReceiptModal">
+										<i class="bi-receipt me-1"></i>
+										Invoice
+									</a>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+				<!-- End Table -->
+				<!-- Footer -->
+				<div class="card-footer">
+					<div class="row justify-content-center justify-content-sm-between align-items-sm-center">
+						<div class="col-sm mb-2 mb-sm-0">
+							<div class="d-flex justify-content-center justify-content-sm-start align-items-center">
+								<span class="me-2">Showing:</span>
+
+								<!-- Select -->
+								<div class="tom-select-custom">
+									<select id="datatableEntries"
+											class="js-select form-select form-select-borderless w-auto"
+											autocomplete="off"
+											data-hs-tom-select-options='{
+                                "searchInDropdown": false,
+                                "hideSearch": true
+                              }'>
+										<option value="12">
+											12
+										</option>
+										<option value="14"
+												selected="">
+											14
+										</option>
+										<option value="16">
+											16
+										</option>
+										<option value="18">
+											18
+										</option>
+									</select>
+								</div>
+								<!-- End Select -->
+
+								<span class="text-secondary me-2">of</span>
+
+								<!-- Pagination Quantity -->
+								<span id="datatableWithPaginationInfoTotalQty"></span>
+							</div>
+						</div>
+						<!-- End Col -->
+
+						<div class="col-sm-auto">
+							<div class="d-flex justify-content-center justify-content-sm-end">
+								<!-- Pagination -->
+								<nav id="datatablePagination"
+									 aria-label="Activity pagination"></nav>
+							</div>
+						</div>
+						<!-- End Col -->
+					</div>
+					<!-- End Row -->
+				</div>
+				<!-- End Footer -->
+			</div>
+			<!-- End Card -->
+			
+
+			<div class="d-none d-lg-block">
+				<button type="button" class="btn btn-danger">
+					Delete customer
+				</button>
 			</div>
 		</div>
+	</div>
+	<!-- End Row -->
+
+	<div class="d-lg-none">
+		<button type="button" class="btn btn-danger">
+			Delete customer
+		</button>
 	</div>
 </div>

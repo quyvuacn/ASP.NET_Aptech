@@ -18,7 +18,7 @@
 	</td>
 	<td>
 		<a class="d-flex align-items-center"
-		   href="../user-profile.html">
+		   asp-action="Edit" asp-route-id="@Model.Id">
 			<div class="avatar avatar-circle">
 				<img class="avatar-img"
 					 src="front/images/users/@Model.Avatar"
@@ -27,10 +27,6 @@
 			<div class="ms-3">
 				<span class="d-block h5 text-inherit mb-0">
 					@Model.Name
-					<i class="bi-patch-check-fill text-primary"
-					   data-toggle="tooltip"
-					   data-bs-placement="top"
-					   title="Top endorsed"></i>
 				</span>
 				<span class="d-block fs-5 text-body">@Model.Email</span>
 			</div>

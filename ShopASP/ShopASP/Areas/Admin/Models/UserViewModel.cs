@@ -5,12 +5,11 @@ namespace ShopASP.Areas.Admin.Models
 {
 	public class UserViewModel
 	{
-		[BindProperty]
 		public User User { get; set; }
-		[BindProperty]
+		public List<User> Users { get; set; }
 		public UserAddress UserAddress { get; set; }
-		[BindProperty]
-		public string rePassword { get; set; }
+		public string? rePassword { get; set; }
 		public IFormFile? userAvatar { get; set; }
+		public string? search { get; set; }
 	}
 }

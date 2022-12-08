@@ -348,6 +348,9 @@ namespace ShopASP.Migrations
                         .HasColumnType("datetime2")
                         .HasColumnName("CreatedAt");
 
+                    b.Property<double>("Price")
+                        .HasColumnType("float");
+
                     b.Property<int>("ProductId")
                         .HasColumnType("int");
 
@@ -568,7 +571,7 @@ namespace ShopASP.Migrations
             modelBuilder.Entity("ShopASP.Models.OrderDetail", b =>
                 {
                     b.HasOne("ShopASP.Models.Order", "Order")
-                        .WithMany("orderDetails")
+                        .WithMany("OrderDetails")
                         .HasForeignKey("OrderId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -639,7 +642,7 @@ namespace ShopASP.Migrations
             modelBuilder.Entity("ShopASP.Models.ProductTag", b =>
                 {
                     b.HasOne("ShopASP.Models.Product", "Product")
-                        .WithMany("ProductComment")
+                        .WithMany("Tags")
                         .HasForeignKey("ProductId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -669,7 +672,7 @@ namespace ShopASP.Migrations
             modelBuilder.Entity("ShopASP.Models.UserAddress", b =>
                 {
                     b.HasOne("ShopASP.Models.User", "User")
-                        .WithMany("UserAddresses")
+                        .WithMany("UserAddress")
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -699,20 +702,20 @@ namespace ShopASP.Migrations
 
             modelBuilder.Entity("ShopASP.Models.Order", b =>
                 {
-                    b.Navigation("orderDetails");
+                    b.Navigation("OrderDetails");
                 });
 
             modelBuilder.Entity("ShopASP.Models.Product", b =>
                 {
                     b.Navigation("OrderDetails");
 
-                    b.Navigation("ProductComment");
-
                     b.Navigation("ProductComments");
 
                     b.Navigation("ProductDetails");
 
                     b.Navigation("ProductImages");
+
+                    b.Navigation("Tags");
                 });
 
             modelBuilder.Entity("ShopASP.Models.ProductComment", b =>
@@ -729,7 +732,7 @@ namespace ShopASP.Migrations
                 {
                     b.Navigation("Orders");
 
-                    b.Navigation("UserAddresses");
+                    b.Navigation("UserAddress");
                 });
 #pragma warning restore 612, 618
         }

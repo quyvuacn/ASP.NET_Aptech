@@ -1,0 +1,45 @@
+﻿@model ShopASP.Models.ProductImage
+
+<div class="col-6 col-sm-4 col-md-3 mb-3 mb-lg-5">
+	<!-- Card -->
+	<div class="card card-sm">
+		<img class="card-img-top"
+			 src="front/images/products/@Model.Path"
+			 alt="Image Description" />
+
+		<div class="card-body">
+			<div class="row col-divider text-center">
+				<div class="col">
+					<a class="text-body btn"
+					   href="front/images/products/@Model.Path"
+					   data-bs-toggle="tooltip"
+					   data-bs-placement="top"
+					   title="View"
+					   data-fslightbox="gallery">
+						<i class="bi-eye"></i>
+					</a>
+				</div>
+				<!-- End Col -->
+
+				<div class="col">
+					<form  asp-action="DeleteImage" method="post">
+						<input name="id" value="@Model.Id" type="hidden"/>
+						<button class="btn text-danger"
+								href="javascript:;"
+								data-bs-toggle="tooltip"
+								data-bs-placement="top"
+								title="Delete">
+							<i class="bi-trash"></i>
+						</button>
+					</form>
+					
+				</div>
+				<!-- End Col -->
+			</div>
+			<!-- End Row -->
+		</div>
+		<!-- End Col -->
+	</div>
+	<!-- End Card -->
+</div>
+<!-- End Col -->

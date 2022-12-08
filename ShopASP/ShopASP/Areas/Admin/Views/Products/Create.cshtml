@@ -1,71 +1,207 @@
-﻿@model ShopASP.Models.Product
+﻿@model ShopASP.Areas.Admin.Models.ProductViewModel
 
 @{
-    ViewData["Title"] = "Create";
+	ViewData["Title"] = "Edit";
+	string tab;
+	if (!TempData.ContainsKey("tab"))
+	{
+		tab = "product";
+	}
+	else
+	{
+		tab = @TempData["tab"] as string;
+	}
+
+
 }
+<div class="content container-fluid">
+	<!-- Page Header -->
+	<div class="page-header">
+		<div class="row align-items-end">
+			<div class="col-sm mb-2 mb-sm-0">
+				<nav aria-label="breadcrumb">
+					<ol class="breadcrumb breadcrumb-no-gutter">
+						<li class="breadcrumb-item">
+							<a class="breadcrumb-link"
+							   href="javascript:;">Pages</a>
+						</li>
+						<li class="breadcrumb-item">
+							<a class="breadcrumb-link"
+							   href="javascript:;">Products</a>
+						</li>
+						<li class="breadcrumb-item active"
+							aria-current="page">
+							Details
+						</li>
+					</ol>
+				</nav>
 
-<h1>Create</h1>
+				<h1 class="page-header-title">Products</h1>
+			</div>
+			<!-- End Col -->
+		</div>
+		<!-- End Row -->
+	</div>
+	<!-- End Page Header -->
+	<!-- Card -->
+	<div class="card mb-3 mb-lg-5">
+		<!-- Header -->
+		<div class="card-header">
+			<h4 class="card-header-title">
+				Product information
+			</h4>
+		</div>
+		<!-- End Header -->
+		<!-- Body -->
 
-<h4>Product</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="Create">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="Name" class="control-label"></label>
-                <input asp-for="Name" class="form-control" />
-                <span asp-validation-for="Name" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="BrandId" class="control-label"></label>
-                <select asp-for="BrandId" class ="form-control" asp-items="ViewBag.BrandId"></select>
-            </div>
-            <div class="form-group">
-                <label asp-for="CategoryId" class="control-label"></label>
-                <select asp-for="CategoryId" class ="form-control" asp-items="ViewBag.CategoryId"></select>
-            </div>
-            <div class="form-group">
-                <label asp-for="Description" class="control-label"></label>
-                <input asp-for="Description" class="form-control" />
-                <span asp-validation-for="Description" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Price" class="control-label"></label>
-                <input asp-for="Price" class="form-control" />
-                <span asp-validation-for="Price" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Weight" class="control-label"></label>
-                <input asp-for="Weight" class="form-control" />
-                <span asp-validation-for="Weight" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Sku" class="control-label"></label>
-                <input asp-for="Sku" class="form-control" />
-                <span asp-validation-for="Sku" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="CreatedDate" class="control-label"></label>
-                <input asp-for="CreatedDate" class="form-control" />
-                <span asp-validation-for="CreatedDate" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="UpdatedDate" class="control-label"></label>
-                <input asp-for="UpdatedDate" class="form-control" />
-                <span asp-validation-for="UpdatedDate" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
-            </div>
-        </form>
-    </div>
+		<form asp-action="Create" class="card-body" method="post">
+			<div class="row">
+				<div class="col-sm-6">
+					<!-- Form -->
+					<div class="mb-4">
+						<label for="productNameLabel" class="form-label">
+							Name
+							<i class="bi-question-circle text-body ms-1" data-bs-toggle="tooltip" data-bs-placement="top" aria-label="Products are the goods or services you sell." data-bs-original-title="Products are the goods or services you sell."></i>
+						</label>
+						<input asp-for="Product.Name" type="text" class="form-control" id="productNameLabel" placeholder="Shirt, t-shirts, etc." aria-label="Shirt, t-shirts, etc.">
+					</div>
+					<!-- End Form -->
+				</div>
+				<!-- End Col -->
+				<div class="col-sm-6">
+					<!-- Form -->
+					<div class="mb-4">
+						<label for="PriceLabel"
+							   class="form-label">Price</label>
+
+						<input asp-for="Product.Price"
+							   type="text"
+							   class="form-control"
+							   id="PriceLabel"
+							   placeholder="eg. 0.2"
+							   aria-label="eg. 0.2" />
+					</div>
+					<!-- End Form -->
+				</div>
+				<!-- End Col -->
+			</div>
+			<!-- End Row -->
+			<div class="row">
+				<div class="col-sm-6">
+					<!-- Form -->
+					<div class="mb-4">
+						<label for="SKULabel"
+							   class="form-label">SKU</label>
+
+						<input asp-for="Product.Sku"
+							   type="text"
+							   class="form-control"
+							   id="SKULabel"
+							   placeholder="eg. 348121032"
+							   aria-label="eg. 348121032" />
+					</div>
+					<!-- End Form -->
+				</div>
+				<!-- End Col -->
+
+				<div class="col-sm-6">
+					<!-- Form -->
+					<div class="mb-4">
+						<label for="weightLabel"
+							   class="form-label">Weight</label>
+
+						<div class="input-group">
+							<input asp-for="Product.Weight"
+								   type="text"
+								   class="form-control"
+								   id="weightLabel"
+								   placeholder="0.0"
+								   aria-label="0.0" />
+							<div class="input-group-append">
+								<!-- Select -->
+								<div class="tom-select-custom tom-select-custom-end">
+									<select class="js-select form-select"
+											data-hs-tom-select-options='{
+												"searchInDropdown": false,
+												"hideSearch": true,
+												"dropdownWidth": "6rem"
+												}'>
+										<option value="kg" selected>
+											kg
+										</option>
+
+									</select>
+								</div>
+								<!-- End Select -->
+							</div>
+						</div>
+					</div>
+					<!-- End Form -->
+				</div>
+				<!-- End Col -->
+			</div>
+			<!-- End Row -->
+			<div class="row">
+				<div class="col-sm-6">
+					<div class="mb-4">
+						<label for="BrandLabel" class="form-label">Brand</label>
+						<select class="form-select" id="BrandLabel" asp-for="Product.BrandId">
+							@foreach (var brand in Model.Brands)
+							{
+								<option value="@brand.Id">@brand.Name</option>
+
+							}
+						</select>
+					</div>
+				</div>
+				<div class="col-sm-6">
+					<div class="mb-4">
+						<label for="CategoryLabel" class="form-label">Category</label>
+						<select class="form-select" id="CategoryLabel" asp-for="Product.CategoryId">
+							@foreach (var category in Model.Categories)
+							{
+								<option value="@category.Id">@category.Name</option>
+							}
+						</select>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="mb-4">
+					<label class="form-label">
+						Description
+						<span class="form-label-secondary">(Optional)</span>
+					</label>
+
+					<!-- Ckediter -->
+					<style>
+						#ckEditerDescription:not(:only-child) {
+							min-height: 400px;
+						}
+					</style>
+					<textarea asp-for="Product.Description" class="mb-4" id="ckEditerDescription">
+					<p>Train hard. Stay dry. This soccer jacket is made of soft, sweat-wicking fabric that keeps you moving on the practice field. Stretch panels at the elbows and sides give you a full range of motion as you work.</p>
+					<p>Train hard. Stay dry. This soccer jacket is made of soft, sweat-wicking fabric that keeps you moving on the practice field. Stretch panels at the elbows and sides give you a full range of motion as you work.</p>
+					<h3>Specifications</h3>
+					<ul><li>Regular fit is wider at the body, with a straight silhouette</li><li>Ribbed stand-up collar</li><li>Long sleeves with ribbed cuffs</li><li>100% polyester doubleknit</li><li>Front zip pockets; Full zip; Ribbing details; Ribbed hem</li></ul>
+							</textarea>
+					<script src="~/admin/js/ck-editer.js"></script>
+					<script>
+						ClassicEditor
+							.create(document.querySelector('#ckEditerDescription'))
+					</script>
+				</div>
+			</div>
+
+
+			<div class="row">
+				<div class="mb-0">
+					<button class="btn btn-primary btn-sm">Save</button>
+				</div>
+			</div>
+			<!-- End Ckediter -->
+		</form>
+		<!-- Body -->
+	</div>
+	<!-- End Card -->
 </div>
-
-<div>
-    <a asp-action="Index">Back to List</a>
-</div>
-
-@section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
-}

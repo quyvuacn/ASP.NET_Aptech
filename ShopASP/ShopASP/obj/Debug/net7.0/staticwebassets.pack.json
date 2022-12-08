@@ -421,6 +421,10 @@
       "PackagePath": "staticwebassets\\admin\\img\\others\\img8.png"
     },
     {
+      "Id": "D:\\Github\\ASP.NET_Aptech\\ShopASP\\ShopASP\\wwwroot\\admin\\js\\ck-editer.js",
+      "PackagePath": "staticwebassets\\admin\\js\\ck-editer.js"
+    },
+    {
       "Id": "D:\\Github\\ASP.NET_Aptech\\ShopASP\\ShopASP\\wwwroot\\admin\\js\\demo.js",
       "PackagePath": "staticwebassets\\admin\\js\\demo.js"
     },
@@ -1713,6 +1717,10 @@
       "PackagePath": "staticwebassets\\front\\favicon.ico"
     },
     {
+      "Id": "D:\\Github\\ASP.NET_Aptech\\ShopASP\\ShopASP\\wwwroot\\front\\images\\products\\product_default.png",
+      "PackagePath": "staticwebassets\\front\\images\\products\\product_default.png"
+    },
+    {
       "Id": "D:\\Github\\ASP.NET_Aptech\\ShopASP\\ShopASP\\wwwroot\\front\\images\\users\\default-user.png",
       "PackagePath": "staticwebassets\\front\\images\\users\\default-user.png"
     },
@@ -1723,6 +1731,10 @@
     {
       "Id": "D:\\Github\\ASP.NET_Aptech\\ShopASP\\ShopASP\\wwwroot\\front\\images\\users\\userAvatar_20221205110328.jpg",
       "PackagePath": "staticwebassets\\front\\images\\users\\userAvatar_20221205110328.jpg"
+    },
+    {
+      "Id": "D:\\Github\\ASP.NET_Aptech\\ShopASP\\ShopASP\\wwwroot\\front\\images\\users\\userAvatar_20221205114525.jpg",
+      "PackagePath": "staticwebassets\\front\\images\\users\\userAvatar_20221205114525.jpg"
     },
     {
       "Id": "D:\\Github\\ASP.NET_Aptech\\ShopASP\\ShopASP\\wwwroot\\front\\images\\users\\userAvatar_2022120583800.jpg",

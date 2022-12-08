@@ -270,25 +270,6 @@ namespace ShopASP.SeedData
                     }
                 );
                 context.SaveChanges();
-
-
-                if (context.ProductImage.Any())
-                {
-                    return;
-                }
-                context.ProductImage.AddRange(
-                    new ProductImage
-                    {
-                        ProductId= 1,
-                        Path = "product_1.1.png"
-                    },
-                    new ProductImage
-                    {
-                        ProductId= 1,
-                        Path = "product_2.1.png"
-                    }
-                );
-                context.SaveChanges();
             }
         }
     }

@@ -1,5 +1,5 @@
 ﻿@using ShopASP.Extensions
-@model ShopASP.Models.User
+@model ShopASP.Areas.Admin.Models.UserViewModel
 
 @{
 	ViewData["Title"] = "Create";
@@ -19,7 +19,7 @@
             "stepsSelector": "#addUserStepFormContent",
             "isValidate": false
         }'>
-		<input asp-for="Id" type="hidden" />
+		<input asp-for="User.Id" type="hidden" />
 		<div class="row justify-content-lg-center">
 			<div class="col-lg-8">
 				<!-- Step -->
@@ -78,16 +78,16 @@
 
 								<div class="col-sm-9">
 									<div class="d-flex align-items-center">
-										<input type="hidden" name="avatarOld" value="@Model.Avatar" />
+										<input type="hidden" name="avatarOld" value="@Model.User.Avatar" />
 										<!-- Avatar -->
 										<label class="avatar avatar-xl avatar-circle avatar-uploader me-5"
 											   for="avatarUploader">
 											<img id="avatarImg"
 												 class="avatar-img"
-												 src="front/images/users/@Model.Avatar"
+												 src="front/images/users/@Model.User.Avatar"
 												 alt="Image Description" />
 
-											<input asp-for="Avatar"
+											<input asp-for="userAvatar"
 												   type="file"
 												   class="js-file-attach avatar-uploader-input"
 												   id="avatarUploader"
@@ -127,7 +127,7 @@
 
 								<div class="col-sm-9">
 									<div class="input-group input-group-sm-vertical">
-										<input asp-for="Name"
+										<input asp-for="User.Name"
 											   type="text"
 											   class="form-control"
 											   id="nameLabel"
@@ -143,7 +143,7 @@
 									   class="col-sm-3 col-form-label form-label">Email</label>
 
 								<div class="col-sm-9">
-									<input asp-for="Email"
+									<input asp-for="User.Email"
 										   type="email"
 										   class="form-control"
 										   id="emailLabel"
@@ -166,7 +166,7 @@
 
 								<div class="col-sm-9">
 									<div class="input-group input-group-sm-vertical">
-										<input asp-for="Phone"
+										<input asp-for="User.Phone"
 											   type="text"
 											   class="js-input-mask form-control"
 											   id="phoneLabel"
@@ -188,7 +188,7 @@
 								</label>
 								<div class="col-sm-9">
 									<div class="tom-select-custom">
-										<select asp-for="Level"
+										<select asp-for="User.Level"
 												id="levelLabel"
 												class="js-select form-select" autocomplete="off" value="0"
 												data-hs-tom-select-options='{"placeholder": "Select a level...","hideSearch": true}'>
@@ -226,6 +226,8 @@
 						<!-- Body -->
 						<div class="card-body">
 							<!-- Form -->
+							<input type="hidden" asp-for="UserAddress.Id" />
+							<input type="hidden" asp-for="UserAddress.UserId"/>
 							<div class="row mb-4">
 								<label for="addressPhone"
 									   class="col-sm-3 col-form-label form-label">

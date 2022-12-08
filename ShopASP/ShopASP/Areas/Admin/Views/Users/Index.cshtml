@@ -1,4 +1,4 @@
-﻿@model IEnumerable<ShopASP.Models.User>
+﻿@model ShopASP.Areas.Admin.Models.UserViewModel
 
 @{
 	ViewData["Title"] = "Index";
@@ -52,7 +52,10 @@
 						<div class="input-group-prepend input-group-text">
 							<i class="bi-search"></i>
 						</div>
-						<input id="datatableSearch"
+						<input 
+							asp-for="search"
+							name="search"
+							id="datatableSearch"
 							   type="search"
 							   class="form-control"
 							   placeholder="Search users"
@@ -113,7 +116,7 @@
 							</div>
 						</th>
 						<th>Name</th>
-						<th>Phone</th>
+						<th>Category</th>
 						<th>Level</th>
 						<th>Order</th>
 						<th>Shopping</th>
@@ -123,7 +126,7 @@
 				</thead>
 
 				<tbody>
-					@foreach (var item in Model)
+					@foreach (var item in Model.Users)
 					{
 						<partial name="UserPartial" model="item" />
 					}

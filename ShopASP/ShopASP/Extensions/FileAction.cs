@@ -16,13 +16,13 @@ namespace ShopASP.Features
 
         public static ActionInfo Upload(FileModel file,string uploadDirecotroy)
         {
-            //try
-            //{
+            try
+            {
                 if (!Directory.Exists(uploadDirecotroy))
                     Directory.CreateDirectory(uploadDirecotroy);
 
                 var fileExtension = Path.GetExtension(file.FileData.FileName);
-                var fileName = file.FileName + "_" + DateTime.Now.ToString("yyyyMMddhmmss") + fileExtension;
+                var fileName = file.FileName + "_" + DateTime.Now.ToString("yyyyMMddhmmss")+"_"+Guid.NewGuid().ToString()+ fileExtension;
                 var filePath = Path.Combine(uploadDirecotroy, fileName);
                 using (var strem = File.Create(filePath))
                 {
@@ -32,17 +32,15 @@ namespace ShopASP.Features
                     Completed = true,
                     Result = fileName
                 };
-            //}
-            //catch(Exception ex)
-            //{
-            //    return new ActionInfo
-            //    {
-            //        Completed = false,
-            //        Result = ex.Message
-            //    };
-            //}
-            
-            
+            }
+            catch(Exception ex)
+            {
+                return new ActionInfo
+                {
+                    Completed = false,
+                    Result = ex.Message
+                };
+            }
         }
 
         public static ActionInfo Remove(string filePath)

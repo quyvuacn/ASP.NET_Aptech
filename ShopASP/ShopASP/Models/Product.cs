@@ -10,14 +10,13 @@ namespace ShopASP.Models
         public int BrandId { get; set; }
         public int CategoryId { get; set; }
         public string Description { get; set; }
+        //Giá hiển thị
         public double Price { get; set; }
         public double Weight { get; set; }
         public string Sku { get; set; }
-
         public Category Category { get; set; }
 		public Brand Brand { get; set; }
-
-		public ICollection<ProductTag>? ProductComment { get; set; }
+		public ICollection<ProductTag>? Tags { get; set; }
 		public ICollection<ProductComment>? ProductComments { get; set; }
 		public ICollection<ProductImage>? ProductImages { get; set; }
 		public ICollection<ProductDetail>? ProductDetails { get; set; }

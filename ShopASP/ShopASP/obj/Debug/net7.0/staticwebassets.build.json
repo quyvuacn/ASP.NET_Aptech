@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "zQ/+o7/O1x7bTdywLvV+Cl/MbjeUir5PYiFGB+5djcU=",
+  "Hash": "E8Y4xlH/czM8Jaz305HV/+m4V8bR+YukAgfujp5TApw=",
   "Source": "ShopASP",
   "BasePath": "_content/ShopASP",
   "Mode": "Default",
@@ -1817,6 +1817,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\admin\\img\\others\\img8.png"
+    },
+    {
+      "Identity": "D:\\Github\\ASP.NET_Aptech\\ShopASP\\ShopASP\\wwwroot\\admin\\js\\ck-editer.js",
+      "SourceId": "ShopASP",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\Github\\ASP.NET_Aptech\\ShopASP\\ShopASP\\wwwroot\\",
+      "BasePath": "_content/ShopASP",
+      "RelativePath": "admin/js/ck-editer.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\admin\\js\\ck-editer.js"
     },
     {
       "Identity": "D:\\Github\\ASP.NET_Aptech\\ShopASP\\ShopASP\\wwwroot\\admin\\js\\demo.js",
@@ -7310,6 +7327,23 @@
       "OriginalItemSpec": "wwwroot\\front\\favicon.ico"
     },
     {
+      "Identity": "D:\\Github\\ASP.NET_Aptech\\ShopASP\\ShopASP\\wwwroot\\front\\images\\products\\product_default.png",
+      "SourceId": "ShopASP",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\Github\\ASP.NET_Aptech\\ShopASP\\ShopASP\\wwwroot\\",
+      "BasePath": "_content/ShopASP",
+      "RelativePath": "front/images/products/product_default.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\front\\images\\products\\product_default.png"
+    },
+    {
       "Identity": "D:\\Github\\ASP.NET_Aptech\\ShopASP\\ShopASP\\wwwroot\\front\\images\\users\\default-user.png",
       "SourceId": "ShopASP",
       "SourceType": "Discovered",
@@ -7359,6 +7393,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\front\\images\\users\\userAvatar_20221205110328.jpg"
+    },
+    {
+      "Identity": "D:\\Github\\ASP.NET_Aptech\\ShopASP\\ShopASP\\wwwroot\\front\\images\\users\\userAvatar_20221205114525.jpg",
+      "SourceId": "ShopASP",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\Github\\ASP.NET_Aptech\\ShopASP\\ShopASP\\wwwroot\\",
+      "BasePath": "_content/ShopASP",
+      "RelativePath": "front/images/users/userAvatar_20221205114525.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\front\\images\\users\\userAvatar_20221205114525.jpg"
     },
     {
       "Identity": "D:\\Github\\ASP.NET_Aptech\\ShopASP\\ShopASP\\wwwroot\\front\\images\\users\\userAvatar_2022120583800.jpg",
