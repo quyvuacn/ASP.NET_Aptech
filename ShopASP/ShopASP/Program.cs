@@ -9,10 +9,20 @@ builder.Services.AddDbContext<ShopASPContext>(options =>
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+
 //Dịch vụ convert razor sang html 
 builder.Services.AddScoped<IViewRenderService, ViewRenderService>();
+
 //Dịch vụ send Mail
 builder.Services.AddScoped<IEmail, Email>();
+
+//Sử dụng Session
+builder.Services.AddDistributedMemoryCache();
+builder.Services.AddSession(config =>
+{
+    config.Cookie.Name = "ShopASP";
+    config.IOTimeout = new TimeSpan(0,60,0);//0h60m0s => Session tồn tại trong 60p
+});
 
 var app = builder.Build();
 using (var scope = app.Services.CreateScope())
@@ -28,8 +38,11 @@ if (!app.Environment.IsDevelopment())
     // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
     app.UseHsts();
 }
+//UseSession 
+app.UseSession();
 
 app.UseHttpsRedirection();
+
 app.UseStaticFiles();
 
 app.UseRouting();

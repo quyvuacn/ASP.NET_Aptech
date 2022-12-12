@@ -1,9 +1,13 @@
 ﻿@model ShopASP.Models.ProductDetail
 
 <tr>
-	<form class="d-none" asp-action="EditProductDetail" id="@("ProductDetail_"+Model.Id)" method="post">
+	<form class="d-none" asp-action="EditProductDetail" id="@("ProductDetail_"+Model.Id)" method="post"></form>
 	<input asp-for="Id" type="hidden" form="@("ProductDetail_"+Model.Id)" />
 	<input asp-for="ProductId" type="hidden" form="@("ProductDetail_"+Model.Id)" />
+
+	<form asp-action="DeleteProductDetail" id="@("DeleteProductDetail_"+Model.Id)" method="post"></form>
+	<input name="Id" value="@Model.Id" type="hidden" form="@("DeleteProductDetail_"+Model.Id)" />
+
 	<td class="table-column-pe-0">
 		<div class="form-check">
 			<input class="form-check-input"
@@ -89,22 +93,17 @@
 		<!-- End Quantity -->
 	</th>
 	<th class="table-column-ps-0">
-		@Model.CreatedDate
-	</th>
-	<th class="table-column-ps-0">
+		
 		<div class="btn-group"
 			 role="group"
 			 aria-label="Edit group">
 			<button form="@("ProductDetail_"+Model.Id)" class="btn btn-white">
-
 				<i class="bi-pencil me-1"></i>
 				Save
 			</button>
-			<a class="btn btn-white"
-			   href="#">
+			<button form="@("DeleteProductDetail_"+Model.Id)" class="btn btn-white text-danger">
 				<i class="bi-trash"></i>
-			</a>
+			</button>
 		</div>
 	</th>
-	</form>
 </tr>

@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "E8Y4xlH/czM8Jaz305HV/+m4V8bR+YukAgfujp5TApw=",
+  "Hash": "c/5abed3r903wfL5fWJuF1TZMqI6FQ6lkl2jJoGoH64=",
   "Source": "ShopASP",
   "BasePath": "_content/ShopASP",
   "Mode": "Default",
@@ -7342,6 +7342,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\front\\images\\products\\product_default.png"
+    },
+    {
+      "Identity": "D:\\Github\\ASP.NET_Aptech\\ShopASP\\ShopASP\\wwwroot\\front\\images\\products\\video.mp4",
+      "SourceId": "ShopASP",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\Github\\ASP.NET_Aptech\\ShopASP\\ShopASP\\wwwroot\\",
+      "BasePath": "_content/ShopASP",
+      "RelativePath": "front/images/products/video.mp4",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\front\\images\\products\\video.mp4"
     },
     {
       "Identity": "D:\\Github\\ASP.NET_Aptech\\ShopASP\\ShopASP\\wwwroot\\front\\images\\users\\default-user.png",

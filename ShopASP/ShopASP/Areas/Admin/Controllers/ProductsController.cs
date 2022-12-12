@@ -83,11 +83,11 @@ namespace ShopASP.Areas.Admin.Controllers
 			{
 				return NotFound();
 			}
-            var product = await _context.Product
+			var product = await _context.Product
                 .Include(p => p.Brand)
                 .Include(p => p.Category)
                 .Include(p => p.ProductImages)
-                .Include(p => p.ProductDetails)
+                .Include(p => p.ProductDetails.OrderByDescending(pd=>pd.CreatedDate))
                 .Include(p => p.Tags)
                     .ThenInclude(tag=>tag.Tag)
 				.FirstOrDefaultAsync(m => m.Id == id);
@@ -252,6 +252,23 @@ namespace ShopASP.Areas.Admin.Controllers
                 return BadRequest("Lỗi");
             }
 
+		}
+
+		[HttpPost, ActionName("DeleteProductDetail")]
+		[ValidateAntiForgeryToken]
+		public async Task<IActionResult> DeleteProductDetail(int id)
+		{
+			var productDetail = await _context.ProductDetail.FindAsync(id);
+            var productId = productDetail.ProductId;
+            if(productDetail!=null)
+            {
+                _context.ProductDetail.Remove(productDetail);
+            }
+			await _context.SaveChangesAsync();
+
+            TempData["tab"] = "variants";
+
+			return RedirectToAction("Edit", new {id= productId });
 		}
 
 

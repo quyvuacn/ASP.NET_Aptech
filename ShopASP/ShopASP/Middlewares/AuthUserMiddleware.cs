@@ -17,9 +17,5 @@ namespace ShopASP.Middlewares
                 await next(context);
             });
         }
-
-        
-        
-
     }
 }

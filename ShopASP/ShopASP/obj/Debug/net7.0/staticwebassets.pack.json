@@ -1721,6 +1721,10 @@
       "PackagePath": "staticwebassets\\front\\images\\products\\product_default.png"
     },
     {
+      "Id": "D:\\Github\\ASP.NET_Aptech\\ShopASP\\ShopASP\\wwwroot\\front\\images\\products\\video.mp4",
+      "PackagePath": "staticwebassets\\front\\images\\products\\video.mp4"
+    },
+    {
       "Id": "D:\\Github\\ASP.NET_Aptech\\ShopASP\\ShopASP\\wwwroot\\front\\images\\users\\default-user.png",
       "PackagePath": "staticwebassets\\front\\images\\users\\default-user.png"
     },
