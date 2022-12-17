@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using ShopASP.Data;
+using ShopASP.Data.SeedData;
 using ShopASP.Features;
-using ShopASP.SeedData;
 
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddDbContext<ShopASPContext>(options =>
